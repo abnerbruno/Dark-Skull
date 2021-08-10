@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class PessoaController {
+public class TesteController {
 
     @GetMapping("/") //retorna o arquivo chamado index
     public String indexFormulario(){
