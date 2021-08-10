@@ -14,21 +14,58 @@ public class TesteController {
         return "index";
     }
 
-    @GetMapping("/menu") //retorna o arquivo chamado menu
-    public String menu(){
-        return "menu";
+    @GetMapping("/index") //retorna o arquivo chamado index
+    public String index(){
+        return "index";
     }
 
-    @GetMapping("/cadastro") //retorna o arquivo chamado cadastrado
-    public String cadastro(){
-        return "cadastrado";
+    @GetMapping("/about") //retorna o arquivo chamado index
+    public String about(){
+        return "about";
     }
 
-    @GetMapping("/salvar")// só retorna essa função quando a request for do tipo GET
-    public ResponseEntity<Pessoa> salvar(){
-        final Pessoa pessoa = new Pessoa("Bruno Abner Comedor de Casada", 24);
-        return ResponseEntity.ok(pessoa);
+    @GetMapping("/shop") //retorna o arquivo chamado index
+    public String shop(){
+        return "shop";
     }
+
+    @GetMapping("/blog") //retorna o arquivo chamado index
+    public String blog(){
+        return "blog";
+    }
+
+    @GetMapping("/elements") //retorna o arquivo chamado index
+    public String elements(){
+        return "elements";
+    }
+
+
+    @GetMapping("/portfolio-item.html") //retorna o arquivo chamado index
+    public String portfolioitem(){
+        return "portfolio-item";
+    }
+
+    @GetMapping("/blog-single.html") //retorna o arquivo chamado index
+    public String blogsingle(){
+        return "blog-single";
+    }
+
+    @GetMapping("/shop-single.html") //retorna o arquivo chamado index
+    public String shopsingle(){
+        return "shop-single";
+    }
+
+    @GetMapping("/portfolio-category.html") //retorna o arquivo chamado index
+    public String portfoliocategory(){
+        return "portfolio-category";
+    }
+
+    @GetMapping("/contact.html") //retorna o arquivo chamado index
+    public String contact(){
+        return "contact";
+    }
+
+
 
     @GetMapping("/pessoa")// retorna a entidade Pessoa como Json
     public ResponseEntity<Pessoa> getPessoa(){
