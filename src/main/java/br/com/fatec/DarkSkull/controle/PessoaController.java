@@ -1,5 +1,6 @@
-package br.com.fatec.DarkSkull;
+package br.com.fatec.DarkSkull.controle;
 
+import br.com.fatec.DarkSkull.model.Pessoa;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,13 +29,13 @@ public class PessoaController {
 
     @RequestMapping("/mario") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
     public ResponseEntity<Pessoa> geMario(){
-        final Pessoa pessoa = new Pessoa("Mario Bros", 2020);
+        final Pessoa pessoa = new Pessoa("Mario Bros do Pessoa Controler", 2020);
         return ResponseEntity.ok(pessoa);
     }
 
     @RequestMapping("/Luigi") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
     public ResponseEntity<Pessoa> geLuigi(){
-        final Pessoa pessoa = new Pessoa("Luigi Bros", 2021);
+        final Pessoa pessoa = new Pessoa("Luigi Mario Bros", 3000);
         return ResponseEntity.ok(pessoa);
     }
 
