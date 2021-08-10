@@ -1,41 +1,28 @@
 package br.com.fatec.DarkSkull.controle;
 
-import br.com.fatec.DarkSkull.model.Pessoa;
+import br.com.fatec.DarkSkull.model.registros.Pessoa;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class PessoaController {
 
-    @GetMapping("/pessoa")
+    @GetMapping("/pessoa")// retorna a entidade Pessoa como Json
     public ResponseEntity<Pessoa> getPessoa(){
-        final Pessoa pessoa = new Pessoa("Bruno Abner", 14);
+        final Pessoa pessoa = new Pessoa("Bruno Abner", 22);
         return ResponseEntity.ok(pessoa);
     }
 
-    @GetMapping("/bruno")
+    @GetMapping("/menu") //retorna o arquivo chamado menu
+    public String menu(){
+        return "menu";
+    }
+
+    @GetMapping("/bruno")// só retorna essa função quando a request for do tipo GET
     public ResponseEntity<Pessoa> getMenu(){
         final Pessoa pessoa = new Pessoa("Bruno Abner Comedor de Casada", 24);
-        return ResponseEntity.ok(pessoa);
-    }
-
-    @GetMapping("/naruto") // só retorna essa função quando a request for do tipo GET
-    public ResponseEntity<Pessoa> geNaruto(){
-        final Pessoa pessoa = new Pessoa("Naruto", 105);
-        return ResponseEntity.ok(pessoa);
-    }
-
-    @RequestMapping("/mario") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
-    public ResponseEntity<Pessoa> geMario(){
-        final Pessoa pessoa = new Pessoa("Mario Bros do Pessoa Controler", 2020);
-        return ResponseEntity.ok(pessoa);
-    }
-
-    @RequestMapping("/Luigi") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
-    public ResponseEntity<Pessoa> geLuigi(){
-        final Pessoa pessoa = new Pessoa("Luigi Mario Bros", 3000);
         return ResponseEntity.ok(pessoa);
     }
 

@@ -1,4 +1,4 @@
-package br.com.fatec.DarkSkull.model;
+package br.com.fatec.DarkSkull.model.registros;
 
 import lombok.Getter;
 import lombok.Setter;
