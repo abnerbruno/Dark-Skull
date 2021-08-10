@@ -14,9 +14,9 @@ public class PessoaController {
         return ResponseEntity.ok(pessoa);
     }
 
-    @GetMapping("/menu")
+    @GetMapping("/bruno")
     public ResponseEntity<Pessoa> getMenu(){
-        final Pessoa pessoa = new Pessoa("Bruno Abner", 34);
+        final Pessoa pessoa = new Pessoa("Bruno Abner Comedor de Casada", 24);
         return ResponseEntity.ok(pessoa);
     }
 
@@ -35,6 +35,12 @@ public class PessoaController {
     @RequestMapping("/Luigi") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
     public ResponseEntity<Pessoa> geLuigi(){
         final Pessoa pessoa = new Pessoa("Luigi Bros", 2021);
+        return ResponseEntity.ok(pessoa);
+    }
+
+    @RequestMapping("/minori") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
+    public ResponseEntity<Pessoa> geMinoru(){
+        final Pessoa pessoa = new Pessoa("Bruno Minori Rei Delas", 21);
         return ResponseEntity.ok(pessoa);
     }
 
