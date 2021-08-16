@@ -14,14 +14,14 @@ public class TesteController {
         return "home";
     }
 
-    @GetMapping("/index") //retorna o arquivo chamado index
-    public String index(){
-        return "index";
+    @GetMapping("/cadastrar") //retorna o arquivo chamado index
+    public String usuarioCadastro(){
+        return "administrativo/usuarios/cadastro";
     }
 
-    @GetMapping("/about") //retorna o arquivo chamado index
-    public String about(){
-        return "about";
+    @GetMapping("/listar") //retorna o arquivo chamado index
+    public String usuarioListar(){
+        return "administrativo/usuarios/lista";
     }
 
     @GetMapping("/shop") //retorna o arquivo chamado index
