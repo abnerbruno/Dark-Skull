@@ -1,6 +1,5 @@
 package br.com.fatec.DarkSkull.model;
 
-import br.com.fatec.DarkSkull.util.Tamanho;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
