@@ -11,7 +11,7 @@ public class TesteController {
 
     @GetMapping("/") //retorna o arquivo chamado index
     public String indexFormulario(){
-        return "index";
+        return "home";
     }
 
     @GetMapping("/index") //retorna o arquivo chamado index
