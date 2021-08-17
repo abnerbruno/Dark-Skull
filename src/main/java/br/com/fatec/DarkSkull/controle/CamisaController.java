@@ -12,16 +12,16 @@ public class CamisaController {
 
 
 
-    @GetMapping("/pessoa")// retorna a entidade Pessoa como Json
-    public ResponseEntity<Pessoa> getPessoa(){
-        final Pessoa pessoa = new Pessoa("Bruno Abner", 22);
-        return ResponseEntity.ok(pessoa);
-    }
-
-    @RequestMapping("/minori") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
-    public ResponseEntity<Pessoa> geMinoru(){
-        final Pessoa pessoa = new Pessoa("Bruno Minori Rei Delas", 21);
-        return ResponseEntity.ok(pessoa);
-    }
+//    @GetMapping("/pessoa")// retorna a entidade Pessoa como Json
+//    public ResponseEntity<Pessoa> getPessoa(){
+//        final Pessoa pessoa = new Pessoa("Bruno Abner", 22);
+//        return ResponseEntity.ok(pessoa);
+//    }
+//
+//    @RequestMapping("/minori") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
+//    public ResponseEntity<Pessoa> geMinoru(){
+//        final Pessoa pessoa = new Pessoa("Bruno Minori Rei Delas", 21);
+//        return ResponseEntity.ok(pessoa);
+//    }
 
 }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Alterar Endereço</title>
+  <link rel="stylesheet" href="/css/Cadastro.css">
+  <link rel="stylesheet" href="/css/Cabecalho.css">
+  <link rel="stylesheet" href="/css/Rodape.css">
+
+</head>
+<body>
+  <nav id="menu-h">
+    <ul>
+      <li><a href="Home">Home</a></li>
+      <li><a href="#">Produtos</a></li>
+      <li><a href="#">Contato</a></li>
+      <li><a href="Alterar_Endereco">Minha Conta</a></li>
+      <li><a href="Login">Entrar</a></li>
+      </ul>
+  </nav>
+  <div id="main-container">
+    <h1>Alterar Endereço</h1>
+    <form id="register-form" action="">
+      <!-- CEP -->
+      <div class="half-box spacing">
+        <label for="CEP">CEP</label>
+        <input type="text" name="CEP" id="cep" placeholder="Ex: 00000-000" data-required  data-min-length="8" data-max-length="9" > 
+      </div>
+      <!-- Logrodouro -->
+      <div class="half-box">
+        <label for="Logradouro">Logrodouro</label>
+        <input type="text" name="Logradouro" id="logradouro" placeholder="Logradouro" data-required>
+      </div>
+      <!-- Bairro -->
+      <div class="half-box spacing">
+        <label for="Bairro">Bairro</label>
+        <input type="text" name="Bairro" id="bairro" placeholder="Bairro" data-required>
+      </div>
+      <!-- Cidade -->
+      <div class="half-box">
+        <label for="Cidade">Cidade</label>
+        <input type="text" name="Cidade" id="localidade" placeholder="Cidade" data-required>
+      </div>
+      <!-- Estado -->
+      <div class="half-box spacing">
+        <label for="Estado">Estado</label>
+        <input type="text" name="Estado" id="uf" placeholder="Estado" data-required>
+      </div>
+      <!-- Complemento -->
+      <div class="half-box">
+        <label for="Complemento">Complemento</label>
+        <input type="text" name="Complemento" id="Complemento" placeholder="Complemento" data-required>
+      </div>
+
+      <div class="half-box spacing">
+        <input type="checkbox" name="agreement" id="agreement">
+        <label for="agreement" id="agreement-label"> Adicionar endereço de entrega diferente</label>
+      </div>
+      
+      <!-- Envio de formulario -->
+      <div class="full-box">
+        <input id="btn-submit" type="submit" value="Registrar">
+      </div>
+
+      
+
+    </form>
+  </div>
+
+
+  
+  <!-- texto da validação retorno -->
+  <p class="error-validation template"></p>
+  <script src="js/validacao.js"></script>
+</body>
+</html>
