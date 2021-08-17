@@ -11,18 +11,19 @@ public class TesteController {
 
     @GetMapping("/") //retorna o arquivo chamado index
     public String indexFormulario(){
-        return "home";
+        return "minimalista/login";
     }
 
-    @GetMapping("/cadastrar") //retorna o arquivo chamado index
+    @GetMapping("/Cadastro") //retorna o arquivo chamado index
     public String usuarioCadastro(){
-        return "administrativo/usuarios/cadastro";
+        return "minimalista/Cadastro";
     }
 
-    @GetMapping("/listar") //retorna o arquivo chamado index
-    public String usuarioListar(){
-        return "administrativo/usuarios/lista";
-    }
+    @GetMapping("/Alterar_Endereco") //retorna o arquivo chamado index
+    public String usuarioListar(){ return "minimalista/Alterar_Endereco"; }
+
+    @GetMapping("/Login") //retorna o arquivo chamado index
+    public String usuarioLogin(){ return "minimalista/Login"; }
 
     @GetMapping("/shop") //retorna o arquivo chamado index
     public String shop(){
