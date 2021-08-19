@@ -26,9 +26,7 @@ public class TesteController {
     public String usuarioLogin(){ return "minimalista/Login"; }
 
     @GetMapping("/shop") //retorna o arquivo chamado index
-    public String shop(){
-        return "shop";
-    }
+    public String shop(){ return "shop"; }
 
     @GetMapping("/blog") //retorna o arquivo chamado index
     public String blog(){

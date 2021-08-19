@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url('../img/bg-register-page.png');
+}
+
+.Caixa-Login{
+    width: 300px;
+    padding:  40px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #191919;
+    text-align: center;
+}
+
+.Caixa-Login h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.Caixa-Login input[type = "text"], .Caixa-Login input[type = "password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10% auto;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width:  200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    text-align: center;
+}
+
+.Caixa-Login input[type = "text"]:focus, .Caixa-Login input[type = "password"]:focus{
+    width: 230px;
+    border-color: #2ecc71;
+}
+
+.Caixa-Login input[type = "submit"],.Caixa-Login input[type = "button"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 5% auto;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.Caixa-Login input[type = "submit"]:hover,.Caixa-Login input[type = "button"]:hover{
+    background: #2ecc71;
+}
+
