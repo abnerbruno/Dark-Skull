@@ -5,21 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="css/Login.css">
-    <link rel="stylesheet" href="css/Cabecalho.css">
-    <link rel="stylesheet" href="css/Rodape.css">
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/MinhaConta.css"rel="stylesheet">
 
 </head>
 <body>
-    <nav id="menu-h">
-        <ul>
-          <li><a href="Home.html">Home</a></li>
-          <li><a href="#">Produtos</a></li>
-          <li><a href="#">Contato</a></li>
-          <li><a href="Alterar_Endereco.html">Minha Conta</a></li>
-          <li><a href="Login.html">Entrar</a></li>
-          </ul>
-    </nav>
+
+    <!-- Nav Bar Start -->
+    <div class="nav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto">
+                        <a href="#" class="nav-item nav-link">Home</a>
+                        <a href="#" class="nav-item nav-link">Produtos</a>
+                        <a href="MinhaConta.html" class="nav-item nav-link">Minha Conta</a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown">
+                            <a id="menu-entrar" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Entrar</a>
+                            <div class="dropdown-menu">
+                                <a href="Login.html" class="dropdown-item">Login</a>
+                                <a href="Cadastro.html" class="dropdown-item">Registrar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Nav Bar End --> 
 
     <form class="Caixa-Login" action="home.html" method="post">
         <h1>Login</h1>
@@ -33,6 +49,13 @@
             <a href="Cadastro.html" style="text-decoration:none"><input type="button" name="" value="Cadastro"></a>
         </div>
     </form>
+
+    <!-- JavaScript Libraries --> 
+    <script src="js/jquery-3.4.1.min.js"></script> <!-- necessario para fazer a animação de Troca da Tabela-->
+    <script src="js/bootstrap.js"></script>        <!-- necessario para fazer a animação de Troca da Tabela-->
+    
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 
 </body>
 </html>

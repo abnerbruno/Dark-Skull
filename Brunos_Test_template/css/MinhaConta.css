@@ -6,12 +6,14 @@ body {
     color: #353535;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    background: url('../img/bg-register-page.png') no-repeat;
-    background-size:cover;
+    top: 50px;
+    background-image: url('../img/bg-register-page.png');
+    background-size: cover;
+    background-position-y: -150px;
 }
 
 a {
-    color: #FF6F61;
+    color: rgb(209, 62, 62);
 }
 
 a:hover,
@@ -62,7 +64,7 @@ h2 {
     margin-top: 0;
     border: 0;
     border-radius: 0;
-    background: rgb(224, 98, 98); /*cor de fundo quando é selecionado o Menu*/
+    background: rgb(209, 62, 62); /*cor de fundo quando é selecionado o Menu*/
 }
 
 /*#menu-entrar:hover{
@@ -92,7 +94,7 @@ h2 {
     
     .nav .navbar-dark a.nav-link:hover, /*hover quando passa*/
     .nav .navbar-dark a.nav-link.active { /*houver quando clica*/
-        color: rgb(224, 98, 98); /*esse é a cor de ativacao dos textos*/
+        color: rgb(209, 62, 62); /*esse é a cor de ativacao dos textos*/
     }
 }
 
@@ -140,7 +142,7 @@ h2 {
 .my-account .nav.nav-pills .nav-link:hover,
 .my-account .nav.nav-pills .nav-link.active {
     color: #ffffff;
-    background: #FF6F61;
+    background: rgb(209, 62, 62);
 }
 
 .my-account .nav.nav-pills .nav-link i {
@@ -257,7 +259,7 @@ h2 {
 .form-control:focus,
 .custom-select:focus {
     box-shadow: none;
-    border-color: #FF6F61;
+    border-color: rgb(209, 62, 62);
 }
 
 .custom-radio,
@@ -274,22 +276,81 @@ h2 {
 .custom-radio .custom-control-input:checked~.custom-control-label::before,
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     color: #ffffff;
-    background: #FF6F61;
-    border-color: #FF6F61;
+    background: rgb(209, 62, 62);
+    border-color: rgb(209, 62, 62);
     box-shadow: none;
 }
 
 .btn {
-    color: #FF6F61;
+    color: rgb(209, 62, 62);
     background: #ffffff;
-    border: 1px solid #FF6F61;
+    border: 1px solid rgb(209, 62, 62);
 }
 
 .btn:hover,
 .btn:active,
 .btn:focus {
     color: #ffffff;
-    background: #FF6F61;
+    background: rgb(209, 62, 62);
     box-shadow: none;
 }
 
+/**********************************/
+/********* Caixa Login CSS *********/
+/**********************************/
+
+.Caixa-Login{
+    width: 300px;
+    margin: 10px;
+    padding: 40px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #191919;
+    text-align: center;
+}
+
+.Caixa-Login h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.Caixa-Login input[type = "text"], .Caixa-Login input[type = "password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10% auto;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width:  200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    text-align: center;
+}
+
+.Caixa-Login input[type = "text"]:focus, .Caixa-Login input[type = "password"]:focus{
+    width: 230px;
+    border-color: #2ecc71;
+}
+
+.Caixa-Login input[type = "submit"],.Caixa-Login input[type = "button"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 5% auto;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.Caixa-Login input[type = "submit"]:hover,.Caixa-Login input[type = "button"]:hover{
+    background: #2ecc71;
+}
