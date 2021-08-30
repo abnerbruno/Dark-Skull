@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Alterar Endereço</title>
+  <title>Alterar Cartão</title>
 
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/MinhaConta.css" rel="stylesheet">
@@ -18,7 +18,7 @@
               <nav class="navbar navbar-expand-md bg-dark navbar-dark">
                   <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                       <div class="navbar-nav mr-auto">
-                          <a href="#" class="nav-item nav-link">Home</a>
+                          <a href="Home.html" class="nav-item nav-link">Home</a>
                           <a href="#" class="nav-item nav-link">Produtos</a>
                           <a href="MinhaConta.html" class="nav-item nav-link">Minha Conta</a>
                       </div>
@@ -40,60 +40,56 @@
 
 
   <div id="main-container">
-    <h1>Alterar Endereço</h1>
+    <h1>Cartâo</h1>
     <form id="register-form" action="">
-      <!-- CEP -->
-      <div class="half-box spacing">
-        <label for="CEP">CEP</label>
-        <input type="text" name="CEP" id="cep" placeholder="Ex: 00000-000" data-required  data-min-length="8" data-max-length="9" > 
-      </div>
-      <!-- Logrodouro -->
-      <div class="half-box">
-        <label for="Logradouro">Logrodouro</label>
-        <input type="text" name="Logradouro" id="logradouro" placeholder="Logradouro" data-required>
-      </div>
-      <!-- Bairro -->
-      <div class="half-box spacing">
-        <label for="Bairro">Bairro</label>
-        <input type="text" name="Bairro" id="bairro" placeholder="Bairro" data-required>
-      </div>
-      <!-- Cidade -->
-      <div class="half-box">
-        <label for="Cidade">Cidade</label>
-        <input type="text" name="Cidade" id="localidade" placeholder="Cidade" data-required>
-      </div>
-      <!-- Estado -->
-      <div class="half-box spacing">
-        <label for="Estado">Estado</label>
-        <input type="text" name="Estado" id="uf" placeholder="Estado" data-required>
-      </div>
-      <!-- Complemento -->
-      <div class="half-box">
-        <label for="Complemento">Complemento</label>
-        <input type="text" name="Complemento" id="Complemento" placeholder="Complemento" data-required>
-      </div>
-
-      <div class="half-box spacing">
-        <input type="checkbox" name="agreement" id="agreement">
-        <label for="agreement" id="agreement-label"> Adicionar endereço de entrega diferente</label>
-      </div>
-      
-      <!-- Envio de formulario -->
+      <!-- Nome Completo -->
       <div class="full-box">
-        <input id="btn-submit" type="submit" value="Registrar">
+        <label for="NomeCompleto">Nome Completo</label>
+        <input type="text" name="NomeCompleto" id="NomeCompleto" placeholder="Ex: Bruno abner" data-required  data-min-length="8" data-max-length="9" > 
+      </div>
+      <!-- Numero do Cartão -->
+      <div class="full-box">
+        <label for="NumeroCartao">Numero do Cartão</label>
+        <input type="text" name="NumeroCartao" id="NumeroCartao" placeholder="Ex: 0000-0000-0000-0000" data-required  data-min-length="8" data-max-length="9" > 
+      </div>
+      <!-- Codigo -->
+      <div class="half-box spacing">
+        <label for="Codigo">Codigo de Segurança</label>
+        <input type="text" name="Codigo" id="Codigo" placeholder="000" data-required>
+      </div>
+      <!-- Bandeira -->
+      <div class="half-box">
+        <label for="Bandeira">Bandeira</label>
+        <input type="text" name="Bandeira" id="Bandeira" placeholder="MasterCard" data-required>
+      </div>
+      <!-- Descricao -->
+      <div class="full-box">
+        <label for="Descricao">Descricao</label>
+        <input type="text" name="Descricao" id="Descricao" placeholder="Complemento : Opcional" data-required>
+      </div>
+
+      <div class="full-box">
+        <input type="checkbox" name="agreement" id="agreement">
+        <label for="agreement" id="agreement-label"> Adicionar como Cartão Principal</label>
+      </div>
+      
+      <!-- Envio Salvar de formulario -->
+      <div class="half-box spacing">
+        <input id="btn-submit" type="submit" value="Salvar">
+      </div>
+
+      <!-- Envio de formulario -->
+      <div class="half-box">
+        <input id="btn-submit" type="submit" value="Excluir">
       </div>
 
       
-
     </form>
   </div>
 
 
 
   
-  <!-- texto da validação retorno -->
-  <p class="error-validation template"></p>
-  <script src="js/validacao.js"></script>
 
     <!-- JavaScript Libraries --> 
     <script src="js/jquery-3.4.1.min.js"></script> <!-- necessario para fazer a animação de Troca da Tabela-->

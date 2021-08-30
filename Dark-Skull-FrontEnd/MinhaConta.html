@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Dark-Skull</title>
+        <title>Minha Conta</title>
 
         <!-- CSS Libraries Icons -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
                 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="#" class="nav-item nav-link">Home</a>
+                            <a href="Home.html" class="nav-item nav-link">Home</a>
                             <a href="#" class="nav-item nav-link">Produtos</a>
                             <a href="MinhaConta.html" class="nav-item nav-link">Minha Conta</a>
                         </div>
@@ -50,20 +50,21 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active" id="dashboard-nav" data-toggle="pill" href="#dashboard-tab" role="tab"><i class="fa fa-tachometer-alt"></i>Dashboard</a>
+                            <a class="nav-link active" id="dashboard-nav" data-toggle="pill" href="#rank-tab" role="tab"><i class="fa fa-sitemap"></i>Rank</a>
                             <a class="nav-link" id="orders-nav" data-toggle="pill" href="#orders-tab" role="tab"><i class="fa fa-shopping-bag"></i>Pedidos</a>
                             <a class="nav-link" id="payment-nav" data-toggle="pill" href="#payment-tab" role="tab"><i class="fa fa-credit-card"></i>Cartões</a>
                             <a class="nav-link" id="address-nav" data-toggle="pill" href="#address-tab" role="tab"><i class="fa fa-map-marker-alt"></i>Endereços</a>
                             <a class="nav-link" id="account-nav" data-toggle="pill" href="#account-tab" role="tab"><i class="fa fa-user"></i>Detalhes Conta</a>
+                            <a class="nav-link" id="password-nav" data-toggle="pill" href="#password-tab" role="tab"><i class="fa fa-user"></i>Senha</a>
                             <a class="nav-link" href="Login.html"><i class="fa fa-sign-out-alt"></i>Logout</a>
                         </div>
                     </div>
                     <div class="col-md-9">
                         <div class="tab-content">
-                            <div class="tab-pane fade show active" id="dashboard-tab" role="tabpanel" aria-labelledby="dashboard-nav">
-                                <h4>Dashboard</h4>
+                            <div class="tab-pane fade show active" id="rank-tab" role="tabpanel" aria-labelledby="dashboard-nav">
+                                <h4>Rank</h4>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum quam ac mi viverra dictum. In efficitur ipsum diam, at dignissim lorem tempor in. Vivamus tempor hendrerit finibus. Nulla tristique viverra nisl, sit amet bibendum ante suscipit non. Praesent in faucibus tellus, sed gravida lacus. Vivamus eu diam eros. Aliquam et sapien eget arcu rhoncus scelerisque.
+                                    Estamos Desenvolvendo o Seu Rank de Compras.
                                 </p> 
                             </div>
                             <div class="tab-pane fade" id="orders-tab" role="tabpanel" aria-labelledby="orders-nav">
@@ -75,6 +76,7 @@
                                                 <th>Produto</th>
                                                 <th>Data</th>
                                                 <th>Preço</th>
+                                                <th>Quantidade</th>
                                                 <th>Status</th>
                                                 <th>Ação</th>
                                             </tr>
@@ -84,25 +86,28 @@
                                                 <td>1</td>
                                                 <td>Product Name</td>
                                                 <td>01 Jan 2020</td>
-                                                <td>R$99</td>
-                                                <td>Approved</td>
-                                                <td><button class="btn">View</button></td>
+                                                <td>R$ 99,00</td>
+                                                <td>1</td>
+                                                <td>Aprovado</td>
+                                                <td><button class="btn"><i class="fa fa-eye"></i></button></td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>Product Name</td>
                                                 <td>01 Jan 2020</td>
-                                                <td>$99</td>
-                                                <td>Approved</td>
-                                                <td><button class="btn">View</button></td>
+                                                <td>R$ 99,00</td>
+                                                <td>3</td>
+                                                <td>Em Processamento</td>
+                                                <td><button class="btn"><i class="fa fa-eye"></i></button></td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Product Name</td>
                                                 <td>01 Jan 2020</td>
-                                                <td>$99</td>
-                                                <td>Approved</td>
-                                                <td><button class="btn">View</button></td>
+                                                <td>R$ 99,00</td>
+                                                <td>5</td>
+                                                <td>Aprovado</td>
+                                                <td><button class="btn"><i class="fa fa-eye"></i></button></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -125,7 +130,7 @@
                                         <input class="form-control" type="text" placeholder="Bandeira">
                                     </div>
                                     <div class="col-md-12">
-                                        <button class="btn">Atualizar</button>
+                                        <a href="Alterar_Cartao.html"><button class="btn">Novo</button></a>
                                         <br><br>
                                     </div>
                                     <p></p>
@@ -137,7 +142,7 @@
                                             <tr>
                                                 <th>Nome</th>
                                                 <th>Codigo</th>
-                                                <th>Tipo</th>
+                                                <th>Bandeira</th>
                                                 <th>Definir Cartão</th>
                                             </tr>
                                         </thead>
@@ -145,26 +150,23 @@
                                             <tr>
                                                 <td>Bradesco</td>
                                                 <td>-0298</td>
-                                                <td>Debito</td>
-                                                <td><a href="Alterar_Endereco.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                                <td>MasterCard</td>
+                                                <td><a href="Alterar_Cartao.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
                                             </tr>
                                             <tr>
                                                 <td>Caixa</td>
                                                 <td>-0198</td>
-                                                <td>Credito</td>
-                                                <td><a href="Alterar_Endereco.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                                <td>Visa</td>
+                                                <td><a href="Alterar_Cartao.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
                                             </tr>
                                             <tr>
                                                 <td>Itau</td>
                                                 <td>-0398</td>
-                                                <td>Credito</td>
-                                                <td><a href="Alterar_Endereco.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                                <td>Visa</td>
+                                                <td><a href="Alterar_Cartao.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    
-
-
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="address-tab" role="tabpanel" aria-labelledby="address-nav">
@@ -220,43 +222,50 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <p></p>
+                                <p></p>
+                                <a href="Alterar_Endereco.html"><button class="btn">Novo Endereço</button></a>
                             </div>
                             <div class="tab-pane fade" id="account-tab" role="tabpanel" aria-labelledby="account-nav">
                                 <h4>Detalhes da Conta</h4>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="First Name">
+                                        <input class="form-control" type="text" placeholder="Nome Completo">
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="Last Name">
+                                        <input class="form-control" type="text" placeholder="Telefone">
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="Mobile">
+                                        <input class="form-control" type="text" placeholder="Data de Nascimento">
                                     </div>
                                     <div class="col-md-6">
                                         <input class="form-control" type="text" placeholder="Email">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <input class="form-control" type="text" placeholder="Address">
                                     </div>
                                     <div class="col-md-12">
                                         <button class="btn">Atualizar</button>
                                         <br><br>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="tab-pane fade" id="password-tab" role="tabpanel" aria-labelledby="account-nav">
                                 <h4>Alterar Senha</h4>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input class="form-control" type="password" placeholder="Current Password">
+                                        <input class="form-control" type="password" placeholder="Senha Atual">
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="New Password">
+                                        <input class="form-control" type="text" placeholder="Nova Senha">
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="Confirm Password">
+                                        <input class="form-control" type="text" placeholder="Confirmar Senha">
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-1">
                                         <button class="btn">Salvar</button>
+                                        <br><br>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button class="btn">Excluir</button>
+                                        <br><br>
                                     </div>
                                 </div>
                             </div>
