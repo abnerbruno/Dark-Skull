@@ -15,13 +15,13 @@ input, label {
 }
 
 a {
-  color: #E60084;
+  color: rgb(209, 62, 62);
 }
 
 body {
   /* padding-top: 5vh; */
   top: 50px;
-  background-image: url('/image/bg-register-page.png');
+  background-image: url('../image/bg-register-page.png');
   background-size: cover;
   background-position-y: -150px;
 }
@@ -77,11 +77,11 @@ input {
 }
 
 input:focus {
-  border-color: #E60084;
+  border-color: rgb(209, 62, 62);
 }
 
 input[type="submit"] {
-  background-color: #E60084;
+  background-color: rgb(209, 62, 62);
   color: #FFF;
   border: none;
   border-radius: 20px;
@@ -101,7 +101,7 @@ input[type="submit"] {
 .error-validation {
   color: #ff1a1a;
   position: absolute;
-  top: 57px;
+  top: 70px;
   font-size: 12px;
 }
 

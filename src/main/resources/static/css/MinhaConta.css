@@ -7,7 +7,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     top: 50px;
-    background-image: url('../img/bg-register-page.png');
+    background-image: url('../image/bg-register-page.png');
     background-size: cover;
     background-position-y: -150px;
 }
