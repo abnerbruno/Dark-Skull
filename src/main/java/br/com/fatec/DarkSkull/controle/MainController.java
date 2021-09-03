@@ -1,44 +1,46 @@
 package br.com.fatec.DarkSkull.controle;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
 
-    @RequestMapping("/") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
-    public String main(){
-        return "Home";
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index() {
+        return "home";
     }
 
-    @RequestMapping("/Home") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String home(){
-        return "Home";
+        return "home";
     }
 
-    @RequestMapping("/Produto") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
-    public String produto(){
-        return "Home";
-    }
-
-    @RequestMapping("/MinhaConta") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
+    @RequestMapping(value = "/minhaConta", method = RequestMethod.GET)
     public String minhaConta(){
-        return "MinhaConta";
+        return "minhaConta";
     }
 
-    @RequestMapping("/Login") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(){
-        return "Login";
+        return "login";
     }
 
-    @RequestMapping("/Cadastro") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
-    public String cadastrar(){
-        return "Cadastro";
+    @RequestMapping(value = "/cadastro", method = RequestMethod.GET)
+    public String cadastro(){
+        return "cadastro";
     }
 
-    @RequestMapping("/Dashboard") // só retorna essa função quando a request for do tipo GET / PUT / POST / PATH
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String dashboard(){
-        return "Dashboard";
+        return "dashboard";
+    }
+
+    @RequestMapping("/t")
+    public String t(){
+        return "index";
     }
 
 }

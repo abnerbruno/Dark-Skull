@@ -4,21 +4,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/minhaConta")
-public class MinhaContaController {
+@RequestMapping("/cliente")
+public class ClienteController {
 
     @RequestMapping("/alterar_cartao")
-    public String alterarCartao() {
+    public String alterarClienteCartao() {
         return "alterar_cartao";
     }
 
     @RequestMapping("/alterar_pedido")
-    public String alterarPedido() {
-        return "Alterar_Endereco";
+    public String alterarClientePedido() {
+        return "alterar_pedido";
     }
 
     @RequestMapping("/alterar_endereco")
-    public String alterarEndereco() {
-        return "Alterar_Endereco";
+    public String alterarClienteEndereco() {
+        return "alterar_endereco";
     }
 }

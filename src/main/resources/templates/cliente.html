@@ -9,9 +9,9 @@
   <!-- CSS Libraries Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-  <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/MinhaConta.css" rel="stylesheet">
-  <link href="css/Cadastro.css"  rel="stylesheet"> 
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/MinhaConta.css" rel="stylesheet">
+  <link href="/css/Cadastro.css"  rel="stylesheet"> 
 
 </head>
 <body>
@@ -21,16 +21,16 @@
               <nav class="navbar navbar-expand-md bg-dark navbar-dark">
                   <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                       <div class="navbar-nav mr-auto">
-                          <a href="Home.html" class="nav-item nav-link">Home</a>
+                          <a href="home" class="nav-item nav-link">Home</a>
                           <a href="#" class="nav-item nav-link">Produtos</a>
-                          <a href="MinhaConta.html" class="nav-item nav-link">Minha Conta</a>
+                          <a href="minhaConta" class="nav-item nav-link">Minha Conta</a>
                       </div>
                       <div class="navbar-nav ml-auto">
                           <div class="nav-item dropdown">
                               <a id="menu-entrar" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Entrar</a>
                               <div class="dropdown-menu">
-                                  <a href="Login.html" class="dropdown-item">Login</a>
-                                  <a href="Cadastro.html" class="dropdown-item">Registrar</a>
+                                  <a href="login" class="dropdown-item">Login</a>
+                                  <a href="cadastro" class="dropdown-item">Registrar</a>
                               </div>
                           </div>
                       </div>
@@ -48,13 +48,13 @@
           <div class="col-md-3">
               <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                   <a class="nav-link active" id="dashboard-nav" data-toggle="pill" href="#rank-tab" role="tab"><i class="fa fa-sitemap"></i>Rank</a>
-                  <a class="nav-link" id="account-nav" data-toggle="pill" href="#account-tab" role="tab"><i class="fa fa-user"></i>Dados Pessoais</a>
+                  <a class="nav-link" id="account-nav" data-toggle="pill" href="account-tab" role="tab"><i class="fa fa-user"></i>Dados Pessoais</a>
                   <a class="nav-link" id="password-nav" data-toggle="pill" href="#password-tab" role="tab"><i class="fa fa-user"></i>Senha</a>
                   <a class="nav-link" id="orders-nav" data-toggle="pill" href="#orders-tab" role="tab"><i class="fa fa-shopping-bag"></i>Pedidos</a>
                   <a class="nav-link" id="payment-nav" data-toggle="pill" href="#payment-tab" role="tab"><i class="fa fa-credit-card"></i>Cartões</a>
                   <a class="nav-link" id="address-nav" data-toggle="pill" href="#address-tab" role="tab"><i class="fa fa-map-marker-alt"></i>Endereços</a>
-                  <a class="nav-link" href="Inativado.html"><i class="fa fa-lock"></i>Inativar</a>
-                  <a class="nav-link" href="Dashboard.html"><i class="fa fa-sign-out-alt"></i>Voltar</a>
+                  <a class="nav-link" href="inativado"><i class="fa fa-lock"></i>Inativar</a>
+                  <a class="nav-link" href="dashboard"><i class="fa fa-sign-out-alt"></i>Voltar</a>
               </div>
           </div>
           <div class="col-md-9">
@@ -148,7 +148,7 @@
                                       <td>R$ 99,00</td>
                                       <td>1</td>
                                       <td>Aprovado</td>
-                                      <td><a href="Alterar_Pedido.html"><button class="btn"><i class="fa fa-edit"></i></a></button></td>    
+                                      <td><a href="cliente/alterar_pedido"><button class="btn"><i class="fa fa-edit"></i></button></a></td>
                                   </tr>
                                   <tr>
                                       <td>2</td>
@@ -157,7 +157,7 @@
                                       <td>R$ 99,00</td>
                                       <td>3</td>
                                       <td>Em Processamento</td>
-                                      <td><a href="Alterar_Pedido.html"><button class="btn"><i class="fa fa-edit"></i></a></button></td>
+                                      <td><a href="cliente/alterar_pedido"><button class="btn"><i class="fa fa-edit"></i></button></a></td>
                                   </tr>
                                   <tr>
                                       <td>3</td>
@@ -166,7 +166,7 @@
                                       <td>R$ 99,00</td>
                                       <td>5</td>
                                       <td>Aprovado</td>
-                                      <td><a href="Alterar_Pedido.html"><button class="btn"><i class="fa fa-edit"></i></a></button></td>
+                                      <td><a href="cliente/alterar_pedido"><button class="btn"><i class="fa fa-edit"></i></button></a></td>
                                   </tr>
                               </tbody>
                           </table>
@@ -189,7 +189,7 @@
                               <input class="form-control" type="text" placeholder="Bandeira">
                           </div>
                           <div class="col-md-12">
-                              <td><a href="Alterar_Cartao.html"><button class="btn">Novo</button></a>
+                              <td><a href="cliente/alterar_pedido"><button class="btn">Novo</button></a>
                               <br><br>
                           </div>
                           <p></p>
@@ -210,19 +210,19 @@
                                       <td>Bradesco</td>
                                       <td>-0298</td>
                                       <td>MasterCard</td>
-                                      <td><a href="Alterar_Cartao.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                      <td><a href="cliente/alterar_cartao"><button class="btn"><i class="fa fa-edit"></i></button></a>
                                   </tr>
                                   <tr>
                                       <td>Caixa</td>
                                       <td>-0198</td>
                                       <td>Visa</td>
-                                      <td><a href="Alterar_Cartao.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                      <td><a href="cliente/alterar_cartao"><button class="btn"><i class="fa fa-edit"></i></button></a>
                                   </tr>
                                   <tr>
                                       <td>Itau</td>
                                       <td>-0398</td>
                                       <td>Visa</td>
-                                      <td><a href="Alterar_Cartao.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                      <td><a href="cliente/alterar_cartao"><button class="btn"><i class="fa fa-edit"></i></button></a>
                                   </tr>
                               </tbody>
                           </table>
@@ -238,7 +238,7 @@
                               <br>Estado: São Paulo
                               <br>Cel: 11 4749-0940
                               <p></p>
-                              <a href="Alterar_Endereco.html"><button class="btn">Editar</button></a>
+                              <a href="alterar_endereco"><button class="btn">Editar</button></a>
                           </div>
                           <div class="col-md-6">
                               <h5>Endereço de Entrega</h5>
@@ -248,7 +248,7 @@
                               <br>Estado: São Paulo
                               <br>Cel: 11 4002-8922
                               <p></p>
-                              <a href="Alterar_Endereco.html"><button class="btn">Editar</button></a>
+                              <a href="cliente/alterar_endereco"><button class="btn">Editar</button></a>
                           </div>
                       </div>
                       <p></p>
@@ -267,23 +267,23 @@
                               <tr>
                                   <td>Casa</td>
                                   <td>Vila Valuf</td>
-                                  <td><a href="Alterar_Endereco.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                  <td><a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-edit"></i></button></a>
                               </tr>
                               <tr>
                                   <td>Escritorio</td>
                                   <td>Mogi das Cruzes</td>
-                                  <td><a href="Alterar_Endereco.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                  <td><a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-edit"></i></button></a>
                               </tr>
                               <tr>
                                   <td>Faculdade</td>
                                   <td>Fatec</td>
-                                  <td><a href="Alterar_Endereco.html"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                  <td><a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-edit"></i></button></a>
                               </tr>
                           </tbody>
                       </table>
                       <p></p>
                       <p></p>
-                      <a href="Alterar_Endereco.html"><button class="btn">Novo Endereço</button></a>
+                      <a href="cliente/alterar_endereco"><button class="btn">Novo Endereço</button></a>
                   </div>
               </div>
           </div>
