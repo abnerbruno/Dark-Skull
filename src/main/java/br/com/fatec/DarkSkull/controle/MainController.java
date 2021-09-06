@@ -33,11 +33,6 @@ public class MainController {
         return "cadastro";
     }
 
-    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-    public String dashboard(){
-        return "dashboard";
-    }
-
     @RequestMapping("/t")
     public String t(){
         return "index";

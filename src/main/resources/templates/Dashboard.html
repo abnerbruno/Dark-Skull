@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8">
         <title>Minha Conta</title>
@@ -146,52 +146,29 @@
                                 <div class="table-responsive">
                                     <h4>Clientes Cadastrados no sistema</h4>
                                     <p></p> 
-                                    <a href="dashboard/cadastro"><button class="btn">Inserir Cliente</button></a>
+                                    <a href="dashboard/cadastro_cliente"><button class="btn">Inserir Cliente</button></a>
                                     <p></p>
                                     <table class="table table-bordered">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th>ID</th>
                                                 <th>Nome</th>
-                                                <th>Rank de Compra</th>
-                                                <th>Criado</th>
+                                                <th>Email</th>
+                                                <th>Data Cadastro</th>
                                                 <th>Status</th>
                                                 <th>Ação</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Bruno Minoru</td>
-                                                <td>100101</td>
-                                                <td>20/10/2020</td>
+                                            <tr th:each="cliente : ${clientes}">
+                                                <td th:text="${cliente.nome}"></td>
+                                                <td th:text="${cliente.email}"></td>
+                                                <td th:text="${cliente.dataNascimento}"></td>
                                                 <td>Ativo</td>
                                                 <td>
-                                                <a href="cliente"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                                <a href="excluido"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+                                                <a th:href="${'cliente?id=' + cliente.id}"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                                <a th:href="${'dashboard/excluir_cliente?id=' + cliente.id}"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Bruno Abner</td>
-                                                <td>100102</td>
-                                                <td>25/10/2020</td>
-                                                <td>Ativo</td>
-                                                <td>
-                                                    <a href="cliente"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                                    <a href="excluido"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Lenalee Lee</td>
-                                                <td>1002001</td>
-                                                <td>30/10/2020</td>
-                                                <td>Inativo</td>
-                                                <td>
-                                                    <a href="cliente"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                                    <a href="excluido"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
-                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -15,3 +15,6 @@ public class DarkSkullApplication {
 	}
 
 }
+
+
+//validate ao inves de create do arquivo aplication.properties para parar de sempre criar uma tabela
