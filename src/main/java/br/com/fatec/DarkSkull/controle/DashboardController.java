@@ -35,37 +35,37 @@ public class DashboardController {
 
     @GetMapping("/cadastro_cliente")
     public String cadastrarCliente() {
-        return "cadastro";
+        return "clientes/cadastro";
     }
 
     @PostMapping("/cadastro_cliente")
     public String salvarCliente(@RequestParam Map<String,String> allParamsCliente) throws ParseException {
-        String nome = allParamsCliente.get("name");
-        String dataNascimento = allParamsCliente.get("DtNascimento");
+        String nome = allParamsCliente.get("nome");
         String email = allParamsCliente.get("email");
+        String telefone = allParamsCliente.get("telefone");
+        String cpf = allParamsCliente.get("cpf");
+        String genero = allParamsCliente.get("genero");
+        String senha = allParamsCliente.get("senha");
+        String sanhaconfirmacao = allParamsCliente.get("sanhaconfirmacao");
 
+
+        String dataNascimento = allParamsCliente.get("datanascimento");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date parsedDate = dateFormat.parse(dataNascimento);
-        Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
+        Timestamp timestampDataNascimento = new java.sql.Timestamp(parsedDate.getTime());
 
-        Cliente cliente = new Cliente(nome, timestamp, email);
+        Cliente cliente = new Cliente(email, senha, nome, cpf, timestampDataNascimento, genero, telefone);
 
 
         this.clienteRepositorio.save(cliente);
-        return "inserido";
+        return "mensagens/inserido";
     }
 
     @GetMapping("/excluir_cliente")
     public String excluirCliente(@RequestParam("id") Long id) {
         this.clienteRepositorio.deleteById(id);
-        return "excluido";
+        return "mensagens/excluido";
     }
-
-    @RequestMapping("/alterar_pedido")
-    public String alterarPedido() {
-        return "alterar_pedido";
-    }
-
 
 
 

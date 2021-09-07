@@ -21,16 +21,16 @@
               <nav class="navbar navbar-expand-md bg-dark navbar-dark">
                   <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                       <div class="navbar-nav mr-auto">
-                          <a href="home" class="nav-item nav-link">Home</a>
+                          <a href="/home" class="nav-item nav-link">Home</a>
                           <a href="#" class="nav-item nav-link">Produtos</a>
-                          <a href="minhaConta" class="nav-item nav-link">Minha Conta</a>
+                          <a href="/minhaConta" class="nav-item nav-link">Minha Conta</a>
                       </div>
                       <div class="navbar-nav ml-auto">
                           <div class="nav-item dropdown">
                               <a id="menu-entrar" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Entrar</a>
                               <div class="dropdown-menu">
-                                  <a href="login" class="dropdown-item">Login</a>
-                                  <a href="cadastro" class="dropdown-item">Registrar</a>
+                                  <a href="/login" class="dropdown-item">Login</a>
+                                  <a href="/cadastro" class="dropdown-item">Registrar</a>
                               </div>
                           </div>
                       </div>
@@ -38,7 +38,7 @@
               </nav>
           </div>
       </div>
-      <!-- Nav Bar End --> 
+      <!-- Nav Bar End -->
 
   
   <!--editar Cliente Start-->
@@ -46,15 +46,15 @@
     <div class="container-fluid">
       <div class="row">
           <div class="col-md-3">
-              <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+              <div th:object = "${cliente}" class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                   <a class="nav-link active" id="dashboard-nav" data-toggle="pill" href="#rank-tab" role="tab"><i class="fa fa-sitemap"></i>Rank</a>
                   <a class="nav-link" id="account-nav" data-toggle="pill" href="#account-tab" role="tab"><i class="fa fa-user"></i>Dados Pessoais</a>
                   <a class="nav-link" id="password-nav" data-toggle="pill" href="#password-tab" role="tab"><i class="fa fa-user"></i>Senha</a>
                   <a class="nav-link" id="orders-nav" data-toggle="pill" href="#orders-tab" role="tab"><i class="fa fa-shopping-bag"></i>Pedidos</a>
                   <a class="nav-link" id="payment-nav" data-toggle="pill" href="#payment-tab" role="tab"><i class="fa fa-credit-card"></i>Cartões</a>
                   <a class="nav-link" id="address-nav" data-toggle="pill" href="#address-tab" role="tab"><i class="fa fa-map-marker-alt"></i>Endereços</a>
-                  <a class="nav-link" href="inativado"><i class="fa fa-lock"></i>Inativar</a>
-                  <a class="nav-link" href="dashboard"><i class="fa fa-sign-out-alt"></i>Voltar</a>
+                  <a class="nav-link" th:href="${'/cliente/inativado?id=' + cliente.id}"><i class="fa fa-lock"></i>Inativar</a>
+                  <a class="nav-link" href="/dashboard"><i class="fa fa-sign-out-alt"></i>Voltar</a>
               </div>
           </div>
           <div class="col-md-9">
@@ -86,19 +86,19 @@
                                     <input class="form-control" type="text" name="nome" th:field="*{nome}"/>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" placeholder="Telefone">
+                                    <input class="form-control" type="text" name="telefone" th:field="*{telefone}">
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" name="dataNascimento" th:field="*{dataNascimento}" >
+                                    <input class="form-control" type="text" name="dataNascimento" th:field="*{dataNascimento}">
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" name="email" th:field="*{email}">
+                                    <input class="form-control" type="text" name="email" th:field="*{usuario.email}">
                                 </div>
                                 <div class="col-md-6">
-                                  <input class="form-control" type="text" placeholder="CPF">
+                                  <input class="form-control" type="text" name="cpf" th:field="*{cpf}">
                               </div>
                               <div class="col-md-6">
-                                  <input class="form-control" type="text" placeholder="Genero">
+                                  <input class="form-control" type="text" name="genero" th:field="*{genero}">
                               </div>
                                 <div class="col-md-12">
                                     <button class="btn">Atualizar</button>
@@ -109,25 +109,28 @@
                 </div>
                 <div class="tab-pane fade" id="password-tab" role="tabpanel" aria-labelledby="account-nav">
                     <h4>Alterar Senha</h4>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input class="form-control" type="password" placeholder="Senha Atual">
+                    <form action="cliente/atualizar_senha" method="POST" th:object="${cliente}">
+                        <input type="hidden" name="id" th:field="*{id}"/>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="senha" th:field="*{usuario.senha}">
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" name="novasenha" placeholder="Nova Senha">
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" name="confirmarnovasenha" placeholder="Confirmar Senha">
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn">Salvar</button>
+                                <br><br>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn">Excluir</button>
+                                <br><br>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <input class="form-control" type="text" placeholder="Nova Senha">
-                        </div>
-                        <div class="col-md-6">
-                            <input class="form-control" type="text" placeholder="Confirmar Senha">
-                        </div>
-                        <div class="col-md-1">
-                            <button class="btn">Salvar</button>
-                            <br><br>
-                        </div>
-                        <div class="col-md-1">
-                            <button class="btn">Excluir</button>
-                            <br><br>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                   <div class="tab-pane fade" id="orders-tab" role="tabpanel" aria-labelledby="orders-nav">
                       <div class="table-responsive">

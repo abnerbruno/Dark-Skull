@@ -8,12 +8,12 @@ public class MessageController {
 
     @RequestMapping("/inativado")
     public String mensagemInativado() {
-        return "inativado";
+        return "mensagens/inativado";
     }
 
     @RequestMapping("/excluido")
     public String mensagemExcluido() {
-        return "excluido";
+        return "mensagens/excluido";
     }
 
 }

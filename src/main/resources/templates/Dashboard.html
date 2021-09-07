@@ -23,16 +23,16 @@
                 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="home" class="nav-item nav-link">Home</a>
+                            <a href="/home" class="nav-item nav-link">Home</a>
                             <a href="#" class="nav-item nav-link">Produtos</a>
-                            <a href="minhaConta" class="nav-item nav-link">Minha Conta</a>
+                            <a href="/minhaConta" class="nav-item nav-link">Minha Conta</a>
                         </div>
                         <div class="navbar-nav ml-auto">
                             <div class="nav-item dropdown">
                                 <a id="menu-entrar" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Entrar</a>
                                 <div class="dropdown-menu">
-                                    <a href="login" class="dropdown-item">Login</a>
-                                    <a href="cadastro" class="dropdown-item">Registrar</a>
+                                    <a href="/login" class="dropdown-item">Login</a>
+                                    <a href="/cadastro" class="dropdown-item">Registrar</a>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                                 <div class="table-responsive">
                                     <h4>Clientes Cadastrados no sistema</h4>
                                     <p></p> 
-                                    <a href="dashboard/cadastro_cliente"><button class="btn">Inserir Cliente</button></a>
+                                    <a href="/dashboard/cadastro_cliente"><button class="btn">Inserir Cliente</button></a>
                                     <p></p>
                                     <table class="table table-bordered">
                                         <thead class="thead-dark">
@@ -161,12 +161,12 @@
                                         <tbody>
                                             <tr th:each="cliente : ${clientes}">
                                                 <td th:text="${cliente.nome}"></td>
-                                                <td th:text="${cliente.email}"></td>
-                                                <td th:text="${cliente.dataNascimento}"></td>
-                                                <td>Ativo</td>
+                                                <td th:text="${cliente.usuario.email}"></td>
+                                                <td th:text="${cliente.usuario.dataCadastro}"></td>
+                                                <td th:text="${cliente.usuario.status}"></td>
                                                 <td>
-                                                <a th:href="${'cliente?id=' + cliente.id}"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                                <a th:href="${'dashboard/excluir_cliente?id=' + cliente.id}"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+                                                <a th:href="${'/cliente?id=' + cliente.id}"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                                <a th:href="${'/dashboard/excluir_cliente?id=' + cliente.id}"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
                                                 </td>
                                             </tr>
                                             </tr>
