@@ -1,5 +1,6 @@
-package br.com.fatec.DarkSkull.model.registros;
+package br.com.fatec.DarkSkull.model.dominio.usuario;
 
+import br.com.fatec.DarkSkull.model.dominio.usuario.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

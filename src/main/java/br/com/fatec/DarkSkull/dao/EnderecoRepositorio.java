@@ -1,10 +1,10 @@
 package br.com.fatec.DarkSkull.dao;
 
 
-import br.com.fatec.DarkSkull.model.dominio.usuario.Cliente;
+import br.com.fatec.DarkSkull.model.dominio.endereco.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClienteRepositorio extends JpaRepository<Cliente,Long> {
+public interface EnderecoRepositorio extends JpaRepository<Endereco,Long> {
 }

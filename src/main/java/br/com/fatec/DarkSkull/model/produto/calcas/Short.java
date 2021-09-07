@@ -1,4 +1,4 @@
-package br.com.fatec.DarkSkull.model.camisetas;
+package br.com.fatec.DarkSkull.model.produto.calcas;
 
 import br.com.fatec.DarkSkull.util.Tamanho;
 import lombok.Data;
@@ -8,12 +8,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @Data
-public class Blusa {
+public class Short {
 
     private String nome;
     private long valor;
     private Tamanho tamanho;
     private int quantidade;
     private String descricao;
+
+
 
 }

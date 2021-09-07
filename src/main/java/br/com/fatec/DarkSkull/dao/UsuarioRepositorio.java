@@ -1,7 +1,7 @@
 package br.com.fatec.DarkSkull.dao;
 
 
-import br.com.fatec.DarkSkull.model.registros.Usuario;
+import br.com.fatec.DarkSkull.model.dominio.usuario.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

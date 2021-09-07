@@ -1,7 +1,7 @@
 package br.com.fatec.DarkSkull.controle;
 
 import br.com.fatec.DarkSkull.dao.ClienteRepositorio;
-import br.com.fatec.DarkSkull.model.registros.Cliente;
+import br.com.fatec.DarkSkull.model.dominio.usuario.Cliente;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

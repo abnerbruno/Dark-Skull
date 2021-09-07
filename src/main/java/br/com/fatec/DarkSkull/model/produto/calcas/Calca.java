@@ -1,4 +1,4 @@
-package br.com.fatec.DarkSkull.model.acessorios;
+package br.com.fatec.DarkSkull.model.produto.calcas;
 
 import br.com.fatec.DarkSkull.util.Tamanho;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Data
-public class Bone {
+public class Calca {
 
     private String nome;
     private long valor;

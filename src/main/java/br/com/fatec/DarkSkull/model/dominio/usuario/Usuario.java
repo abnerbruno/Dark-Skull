@@ -1,4 +1,4 @@
-package br.com.fatec.DarkSkull.model.registros;
+package br.com.fatec.DarkSkull.model.dominio.usuario;
 
 import lombok.*;
 
