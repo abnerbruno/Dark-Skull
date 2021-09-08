@@ -1,5 +1,6 @@
 package br.com.fatec.DarkSkull.model.dominio.usuario;
 
+import br.com.fatec.DarkSkull.model.dominio.endereco.Endereco;
 import br.com.fatec.DarkSkull.model.dominio.usuario.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +9,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -34,7 +39,12 @@ public class Cliente {
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
 
-    public Cliente(String email, String senha, String nome, String cpf, Timestamp dataNascimento, String genero, String telefone) {
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id")
+    private List<Endereco> enderecoList;
+
+
+    public Cliente(String email, String senha, String nome, String cpf, Timestamp dataNascimento, String genero, String telefone, Endereco endereco) {
 
         this.nome = nome;
         this.cpf = cpf;
@@ -48,6 +58,9 @@ public class Cliente {
         usuario.setStatus("Ativado");
 
         this.usuario = usuario;
+
+        this.enderecoList = new ArrayList<Endereco>();
+        this.enderecoList.add(endereco);
 
     }
 

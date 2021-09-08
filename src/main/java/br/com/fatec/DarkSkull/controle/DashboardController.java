@@ -1,6 +1,10 @@
 package br.com.fatec.DarkSkull.controle;
 
 import br.com.fatec.DarkSkull.dao.ClienteRepositorio;
+import br.com.fatec.DarkSkull.dao.EnderecoRepositorio;
+import br.com.fatec.DarkSkull.model.dominio.endereco.Cidade;
+import br.com.fatec.DarkSkull.model.dominio.endereco.Endereco;
+import br.com.fatec.DarkSkull.model.dominio.endereco.Estado;
 import br.com.fatec.DarkSkull.model.dominio.usuario.Cliente;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,6 +25,7 @@ import java.util.Map;
 public class DashboardController {
 
     private final ClienteRepositorio clienteRepositorio;
+    private final EnderecoRepositorio enderecoRepositorio;
 
     @GetMapping
     public ModelAndView listarTudo() {
@@ -47,14 +52,27 @@ public class DashboardController {
         String senha = allParamsCliente.get("senha");
         String sanhaconfirmacao = allParamsCliente.get("sanhaconfirmacao");
 
-
         String dataNascimento = allParamsCliente.get("datanascimento");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date parsedDate = dateFormat.parse(dataNascimento);
         Timestamp timestampDataNascimento = new java.sql.Timestamp(parsedDate.getTime());
 
-        Cliente cliente = new Cliente(email, senha, nome, cpf, timestampDataNascimento, genero, telefone);
+        Estado estado = new Estado();
+        estado.setNome(allParamsCliente.get("Estado"));
 
+        Cidade cidade = new Cidade();
+        cidade.setEstado(estado);
+        cidade.setNome(allParamsCliente.get("cidade"));
+        cidade.setBairro(allParamsCliente.get("bairro"));
+
+
+        Endereco endereco = new Endereco();
+        endereco.setCidade(cidade);
+        endereco.setLongadouro(allParamsCliente.get("logradouro"));
+        endereco.setTipo(allParamsCliente.get("tipoendereco"));
+        endereco.setCep(allParamsCliente.get("cep"));
+
+        Cliente cliente = new Cliente(email, senha, nome, cpf, timestampDataNascimento, genero, telefone, endereco);
 
         this.clienteRepositorio.save(cliente);
         return "mensagens/inserido";
@@ -65,7 +83,6 @@ public class DashboardController {
         this.clienteRepositorio.deleteById(id);
         return "mensagens/excluido";
     }
-
 
 
 }

@@ -1,5 +1,6 @@
 package br.com.fatec.DarkSkull.model.dominio.endereco;
 
+import br.com.fatec.DarkSkull.model.dominio.usuario.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,13 +25,11 @@ public class Endereco {
     private Long id;
 
     public String longadouro;
-    public String numero;
     public String cep;
+    public String tipo;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cidade_id", referencedColumnName = "id")
     public Cidade cidade;
-
-
 
 }

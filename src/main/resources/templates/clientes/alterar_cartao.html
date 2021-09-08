@@ -60,7 +60,11 @@
       <!-- Bandeira -->
       <div class="half-box">
         <label for="Bandeira">Bandeira</label>
-        <input type="text" name="Bandeira" id="Bandeira" placeholder="MasterCard" data-required>
+        <input type="text" name="Bandeira" id="Bandeira" placeholder="MasterCard" list="tipobandeira" data-required>
+          <datalist id="tipobandeira">
+              <option value="Visa">
+              <option value="MasterCard">
+          </datalist>
       </div>
       <!-- Descricao -->
       <div class="full-box">

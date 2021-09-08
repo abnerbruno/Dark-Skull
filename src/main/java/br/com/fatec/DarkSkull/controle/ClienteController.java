@@ -1,6 +1,7 @@
 package br.com.fatec.DarkSkull.controle;
 
 import br.com.fatec.DarkSkull.dao.ClienteRepositorio;
+import br.com.fatec.DarkSkull.model.dominio.endereco.Endereco;
 import br.com.fatec.DarkSkull.model.dominio.usuario.Cliente;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.text.ParseException;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -21,10 +23,17 @@ public class ClienteController {
 
     @GetMapping()
     public ModelAndView alterarCliente(@RequestParam("id") Long id) {
+
         Optional<Cliente> Opcionalcliente = this.clienteRepositorio.findById(id);
         Cliente Cliente = Opcionalcliente.get();
+
+        List<Endereco> enderecos = Cliente.getEnderecoList();
+
         ModelAndView modelAndView = new ModelAndView("clientes/cliente");
+
         modelAndView.addObject("cliente", Cliente);
+        modelAndView.addObject("enderecos", enderecos);
+
         return modelAndView;
     }
 

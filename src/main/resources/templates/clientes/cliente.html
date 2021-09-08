@@ -264,25 +264,15 @@
                       <table class="table table-bordered">
                           <thead class="thead-dark">
                               <tr>
-                                  <th>Nome</th>
-                                  <th>Descrição</th>
+                                  <th>Longadouro</th>
+                                  <th>Bairro</th>
                                   <th>Definir Endereço</th>
                               </tr>
                           </thead>
                           <tbody>
-                              <tr>
-                                  <td>Casa</td>
-                                  <td>Vila Valuf</td>
-                                  <td><a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                              </tr>
-                              <tr>
-                                  <td>Escritorio</td>
-                                  <td>Mogi das Cruzes</td>
-                                  <td><a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                              </tr>
-                              <tr>
-                                  <td>Faculdade</td>
-                                  <td>Fatec</td>
+                              <tr th:each="endereco : ${enderecos}">
+                                  <td th:text="${endereco.longadouro}"></td>
+                                  <td th:text="${endereco.cidade.bairro}"></td>
                                   <td><a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-edit"></i></button></a>
                               </tr>
                           </tbody>

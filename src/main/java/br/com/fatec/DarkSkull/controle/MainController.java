@@ -35,7 +35,7 @@ public class MainController {
 
     @RequestMapping("/t")
     public String t(){
-        return "index";
+        return "clientes/alterar_cartao";
     }
 
 }
