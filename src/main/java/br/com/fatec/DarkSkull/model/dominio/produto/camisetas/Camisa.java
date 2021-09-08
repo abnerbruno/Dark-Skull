@@ -1,4 +1,4 @@
-package br.com.fatec.DarkSkull.model.produto.camisetas;
+package br.com.fatec.DarkSkull.model.dominio.produto.camisetas;
 
 import br.com.fatec.DarkSkull.util.Tamanho;
 import lombok.*;

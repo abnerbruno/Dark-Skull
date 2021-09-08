@@ -1,4 +1,4 @@
-package br.com.fatec.DarkSkull.model.produto.calcas;
+package br.com.fatec.DarkSkull.model.dominio.produto.calcas;
 
 import br.com.fatec.DarkSkull.util.Tamanho;
 import lombok.Data;
