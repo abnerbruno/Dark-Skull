@@ -1,6 +1,8 @@
 package br.com.fatec.DarkSkull.model.dominio.usuario;
 
 import br.com.fatec.DarkSkull.model.dominio.endereco.Endereco;
+import br.com.fatec.DarkSkull.model.dominio.endereco.EnderecoEnvio;
+import br.com.fatec.DarkSkull.model.dominio.endereco.EnderecoPagamento;
 import br.com.fatec.DarkSkull.model.dominio.usuario.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,6 +44,14 @@ public class Cliente {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id")
     private List<Endereco> enderecoList;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_pagamento_id", referencedColumnName = "id")
+    private EnderecoPagamento enderecoPagamento;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_envio_id", referencedColumnName = "id")
+    private EnderecoEnvio enderecoEnvio;
 
 
     public Cliente(String email, String senha, String nome, String cpf, Timestamp dataNascimento, String genero, String telefone, Endereco endereco) {

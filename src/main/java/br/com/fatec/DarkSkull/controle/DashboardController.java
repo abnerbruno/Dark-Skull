@@ -1,9 +1,11 @@
 package br.com.fatec.DarkSkull.controle;
 
 import br.com.fatec.DarkSkull.dao.ClienteRepositorio;
+import br.com.fatec.DarkSkull.dao.EnderecoPagamentoRepositorio;
 import br.com.fatec.DarkSkull.dao.EnderecoRepositorio;
 import br.com.fatec.DarkSkull.model.dominio.endereco.Cidade;
 import br.com.fatec.DarkSkull.model.dominio.endereco.Endereco;
+import br.com.fatec.DarkSkull.model.dominio.endereco.EnderecoPagamento;
 import br.com.fatec.DarkSkull.model.dominio.endereco.Estado;
 import br.com.fatec.DarkSkull.model.dominio.usuario.Cliente;
 import lombok.AllArgsConstructor;
@@ -26,6 +28,7 @@ public class DashboardController {
 
     private final ClienteRepositorio clienteRepositorio;
     private final EnderecoRepositorio enderecoRepositorio;
+    private final EnderecoPagamentoRepositorio enderecoPagamentoRepositorio;
 
     @GetMapping
     public ModelAndView listarTudo() {
@@ -84,5 +87,46 @@ public class DashboardController {
         return "mensagens/excluido";
     }
 
+    @GetMapping("/teste")
+    public String teste() {
+
+        Estado estado = new Estado();
+        estado.setNome("Estado");
+
+        Cidade cidade = new Cidade();
+        cidade.setEstado(estado);
+        cidade.setNome("cidade");
+        cidade.setBairro("bairro");
+
+
+        EnderecoPagamento enderecopagamento = new EnderecoPagamento();
+        enderecopagamento.setCidade(cidade);
+        enderecopagamento.setLongadouro("logradouro");
+        enderecopagamento.setTipo("tipoendereco");
+        enderecopagamento.setCep("cep");
+
+        Endereco endereco = new Endereco();
+        endereco.setCidade(cidade);
+        endereco.setLongadouro("logradouro");
+        endereco.setTipo("tipoendereco");
+        endereco.setCep("cep");
+
+        this.enderecoRepositorio.save(endereco);
+        this.enderecoPagamentoRepositorio.save(enderecopagamento);
+
+
+
+
+        return "mensagens/inserido";
+    }
+
+    @GetMapping("/t")
+    public String e() {
+
+
+
+
+        return "mensagens/inserido";
+    }
 
 }

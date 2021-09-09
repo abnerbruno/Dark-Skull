@@ -2,6 +2,7 @@ package br.com.fatec.DarkSkull.controle;
 
 import br.com.fatec.DarkSkull.dao.ClienteRepositorio;
 import br.com.fatec.DarkSkull.model.dominio.endereco.Endereco;
+import br.com.fatec.DarkSkull.model.dominio.endereco.EnderecoPagamento;
 import br.com.fatec.DarkSkull.model.dominio.usuario.Cliente;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 @AllArgsConstructor
 
@@ -28,6 +30,7 @@ public class ClienteController {
         Cliente Cliente = Opcionalcliente.get();
 
         List<Endereco> enderecos = Cliente.getEnderecoList();
+
 
         ModelAndView modelAndView = new ModelAndView("clientes/cliente");
 
