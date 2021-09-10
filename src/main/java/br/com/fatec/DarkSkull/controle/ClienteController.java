@@ -1,9 +1,10 @@
 package br.com.fatec.DarkSkull.controle;
 
 import br.com.fatec.DarkSkull.dao.ClienteRepositorio;
-import br.com.fatec.DarkSkull.model.dominio.endereco.Endereco;
-import br.com.fatec.DarkSkull.model.dominio.endereco.EnderecoPagamento;
-import br.com.fatec.DarkSkull.model.dominio.usuario.Cliente;
+import br.com.fatec.DarkSkull.dao.EnderecoRepositorio;
+import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Endereco;
+import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
+import br.com.fatec.DarkSkull.util.ComportamentoEndereco;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,8 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicReference;
+
+import static br.com.fatec.DarkSkull.util.ComportamentoEndereco.*;
 
 @AllArgsConstructor
 
@@ -22,20 +24,33 @@ import java.util.concurrent.atomic.AtomicReference;
 public class ClienteController {
 
     private final ClienteRepositorio clienteRepositorio;
+    private final EnderecoRepositorio enderecoRepositorio;
 
     @GetMapping()
     public ModelAndView alterarCliente(@RequestParam("id") Long id) {
-
-        Optional<Cliente> Opcionalcliente = this.clienteRepositorio.findById(id);
-        Cliente Cliente = Opcionalcliente.get();
-
-        List<Endereco> enderecos = Cliente.getEnderecoList();
-
-
         ModelAndView modelAndView = new ModelAndView("clientes/cliente");
 
-        modelAndView.addObject("cliente", Cliente);
+        Optional<Cliente> Opcionalcliente = this.clienteRepositorio.findById(id);
+        Cliente cliente = Opcionalcliente.get();
+        //Buscar Cliente no Banco
+
+        List<Endereco> enderecos = cliente.getEnderecoList();
+        Endereco endPagAndEnv = this.enderecoRepositorio.findByIdAndComportamento(cliente.getId(), PAGAMENTO_E_ENVIO.getCode());
+        Endereco endPag = this.enderecoRepositorio.findByIdAndComportamento(cliente.getId(), ENVIO.getCode());
+        Endereco endEnv = this.enderecoRepositorio.findByIdAndComportamento(cliente.getId(), PAGAMENTO.getCode());
+        // Buscar Lista de enterços no banco
+
+        modelAndView.addObject("cliente", cliente);
         modelAndView.addObject("enderecos", enderecos);
+
+
+        if(endPagAndEnv != null){
+            modelAndView.addObject("enderecopagamento", endPagAndEnv);
+            modelAndView.addObject("enderecoenvio", endPagAndEnv);
+        } else {
+            modelAndView.addObject("enderecopagamento", endPag);
+            modelAndView.addObject("enderecoenvio", endEnv);
+        }
 
         return modelAndView;
     }

@@ -1,5 +1,6 @@
-package br.com.fatec.DarkSkull.model.dominio.endereco;
+package br.com.fatec.DarkSkull.model.dominio.cliente.endereco;
 
+import br.com.fatec.DarkSkull.util.ComportamentoEndereco;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,8 +15,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "endereco_envio")
-public class EnderecoEnvio {
+@Table(name = "endereco")
+public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,11 +24,14 @@ public class EnderecoEnvio {
     private Long id;
 
     public String longadouro;
+    public String numero;
     public String cep;
-    public String tipo;
+    public String tipoResidencia;
+    public int comportamento;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cidade_id", referencedColumnName = "id")
     public Cidade cidade;
+
 
 }

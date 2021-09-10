@@ -1,13 +1,10 @@
 package br.com.fatec.DarkSkull.controle;
 
 import br.com.fatec.DarkSkull.dao.ClienteRepositorio;
-import br.com.fatec.DarkSkull.dao.EnderecoPagamentoRepositorio;
 import br.com.fatec.DarkSkull.dao.EnderecoRepositorio;
-import br.com.fatec.DarkSkull.model.dominio.endereco.Cidade;
-import br.com.fatec.DarkSkull.model.dominio.endereco.Endereco;
-import br.com.fatec.DarkSkull.model.dominio.endereco.EnderecoPagamento;
-import br.com.fatec.DarkSkull.model.dominio.endereco.Estado;
-import br.com.fatec.DarkSkull.model.dominio.usuario.Cliente;
+import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.*;
+import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
+import br.com.fatec.DarkSkull.util.ComportamentoEndereco;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +25,6 @@ public class DashboardController {
 
     private final ClienteRepositorio clienteRepositorio;
     private final EnderecoRepositorio enderecoRepositorio;
-    private final EnderecoPagamentoRepositorio enderecoPagamentoRepositorio;
 
     @GetMapping
     public ModelAndView listarTudo() {
@@ -61,19 +57,20 @@ public class DashboardController {
         Timestamp timestampDataNascimento = new java.sql.Timestamp(parsedDate.getTime());
 
         Estado estado = new Estado();
-        estado.setNome(allParamsCliente.get("Estado"));
+        estado.setNome(allParamsCliente.get("estado"));
 
         Cidade cidade = new Cidade();
         cidade.setEstado(estado);
         cidade.setNome(allParamsCliente.get("cidade"));
         cidade.setBairro(allParamsCliente.get("bairro"));
 
-
         Endereco endereco = new Endereco();
         endereco.setCidade(cidade);
         endereco.setLongadouro(allParamsCliente.get("logradouro"));
-        endereco.setTipo(allParamsCliente.get("tipoendereco"));
+        endereco.setNumero(allParamsCliente.get("numero"));
+        endereco.setTipoResidencia(allParamsCliente.get("tipoendereco"));
         endereco.setCep(allParamsCliente.get("cep"));
+        endereco.setComportamento(ComportamentoEndereco.PAGAMENTO_E_ENVIO.getCode());
 
         Cliente cliente = new Cliente(email, senha, nome, cpf, timestampDataNascimento, genero, telefone, endereco);
 
@@ -87,46 +84,5 @@ public class DashboardController {
         return "mensagens/excluido";
     }
 
-    @GetMapping("/teste")
-    public String teste() {
-
-        Estado estado = new Estado();
-        estado.setNome("Estado");
-
-        Cidade cidade = new Cidade();
-        cidade.setEstado(estado);
-        cidade.setNome("cidade");
-        cidade.setBairro("bairro");
-
-
-        EnderecoPagamento enderecopagamento = new EnderecoPagamento();
-        enderecopagamento.setCidade(cidade);
-        enderecopagamento.setLongadouro("logradouro");
-        enderecopagamento.setTipo("tipoendereco");
-        enderecopagamento.setCep("cep");
-
-        Endereco endereco = new Endereco();
-        endereco.setCidade(cidade);
-        endereco.setLongadouro("logradouro");
-        endereco.setTipo("tipoendereco");
-        endereco.setCep("cep");
-
-        this.enderecoRepositorio.save(endereco);
-        this.enderecoPagamentoRepositorio.save(enderecopagamento);
-
-
-
-
-        return "mensagens/inserido";
-    }
-
-    @GetMapping("/t")
-    public String e() {
-
-
-
-
-        return "mensagens/inserido";
-    }
 
 }
