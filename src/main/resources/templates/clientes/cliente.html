@@ -238,7 +238,7 @@
                       <div class="row">
                           <div class="col-md-6">
                               <h5>Endereço de Pagamento</h5>
-                              <div th:text="${enderecopagamento.longadouro}"></div>
+                              <div th:text="${enderecopagamento.longadouro} + ', ' + ${enderecopagamento.numero}"></div>
                               <div th:text="${enderecopagamento.cidade.bairro}"></div>
                               <div th:text="${enderecopagamento.cidade.nome}"></div>
                               <div th:text="${enderecopagamento.cidade.estado.nome}"></div>
@@ -248,7 +248,7 @@
                           </div>
                           <div class="col-md-6">
                               <h5>Endereço de Entrega</h5>
-                              <div th:text="${enderecoenvio.longadouro}"></div>
+                              <div th:text="${enderecoenvio.longadouro} + ', ' + ${enderecoenvio.numero}"></div>
                               <div th:text="${enderecoenvio.cidade.bairro}"></div>
                               <div th:text="${enderecoenvio.cidade.nome}"></div>
                               <div th:text="${enderecoenvio.cidade.estado.nome}"></div>
@@ -273,7 +273,10 @@
                               <tr th:each="endereco : ${enderecos}">
                                   <td th:text="${endereco.longadouro}"></td>
                                   <td th:text="${endereco.cidade.bairro}"></td>
-                                  <td><a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                  <td>
+                                      <a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                      <a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-trash"></i></button></a>
+                                  </td>
                               </tr>
                           </tbody>
                       </table>
