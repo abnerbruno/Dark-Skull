@@ -1,5 +1,6 @@
 package br.com.fatec.DarkSkull.model.dominio.cliente.endereco;
 
+import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
 import br.com.fatec.DarkSkull.util.ComportamentoEndereco;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class Endereco {
     @Column(name = "id")
     private Long id;
 
+    public String descricao;
     public String longadouro;
     public String numero;
     public String cep;
@@ -32,6 +34,10 @@ public class Endereco {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cidade_id", referencedColumnName = "id")
     public Cidade cidade;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id")
+    public Cliente cliente;
 
 
 }

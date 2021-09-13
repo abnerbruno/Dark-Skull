@@ -105,6 +105,18 @@ public class ClienteController {
         return "mensagens/inativado";
     }
 
+    @GetMapping("/alterar_endereco")
+    public ModelAndView buscarClienteEndereco(@RequestParam("id") Long id) {
+
+        Optional<Endereco> OpcionalEndereco = this.enderecoRepositorio.findById(id);
+        Endereco endereco = OpcionalEndereco.get();
+
+        ModelAndView modelAndView = new ModelAndView("clientes/alterar_endereco");
+        modelAndView.addObject("endereco", endereco);
+
+        return modelAndView;
+    }
+
     @RequestMapping("/alterar_cartao")
     public String alterarClienteCartao() {
         return "alterar_cartao";
@@ -115,8 +127,4 @@ public class ClienteController {
         return "alterar_pedido";
     }
 
-    @RequestMapping("/alterar_endereco")
-    public String alterarClienteEndereco() {
-        return "alterar_endereco";
-    }
 }

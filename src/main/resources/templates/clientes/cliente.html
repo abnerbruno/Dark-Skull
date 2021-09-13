@@ -264,15 +264,15 @@
                       <table class="table table-bordered">
                           <thead class="thead-dark">
                               <tr>
+                                  <th>Descricao</th>
                                   <th>Longadouro</th>
-                                  <th>Bairro</th>
                                   <th>Definir Endereço</th>
                               </tr>
                           </thead>
                           <tbody>
                               <tr th:each="endereco : ${enderecos}">
+                                  <td th:text="${endereco.descricao}"></td>
                                   <td th:text="${endereco.longadouro}"></td>
-                                  <td th:text="${endereco.cidade.bairro}"></td>
                                   <td>
                                       <a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-edit"></i></button></a>
                                       <a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-trash"></i></button></a>
