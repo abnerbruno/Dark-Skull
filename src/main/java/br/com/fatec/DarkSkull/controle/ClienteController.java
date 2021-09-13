@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import static br.com.fatec.DarkSkull.util.ComportamentoEndereco.*;
 
@@ -34,19 +35,22 @@ public class ClienteController {
         Cliente cliente = Opcionalcliente.get();
         //Buscar Cliente no Banco
 
-        List<Endereco> enderecos = cliente.getEnderecoList();
-        Endereco endPagAndEnv = this.enderecoRepositorio.findByIdAndComportamento(cliente.getId(), PAGAMENTO_E_ENVIO.getCode());
-        Endereco endPag = this.enderecoRepositorio.findByIdAndComportamento(cliente.getId(), ENVIO.getCode());
-        Endereco endEnv = this.enderecoRepositorio.findByIdAndComportamento(cliente.getId(), PAGAMENTO.getCode());
+        Set<Endereco> enderecos = cliente.getEnderecos();
+        Endereco endPag = this.enderecoRepositorio.findByIdAndComportamento(cliente.getId(), PAGAMENTO.getCode());
+        Endereco endEnv = this.enderecoRepositorio.findByIdAndComportamento(cliente.getId(), ENVIO.getCode());
         // Buscar Lista de enterços no banco
 
         modelAndView.addObject("cliente", cliente);
         modelAndView.addObject("enderecos", enderecos);
 
 
-        if(endPagAndEnv != null){
-            modelAndView.addObject("enderecopagamento", endPagAndEnv);
-            modelAndView.addObject("enderecoenvio", endPagAndEnv);
+
+        if(endEnv == null){
+            modelAndView.addObject("enderecopagamento", endPag);
+            modelAndView.addObject("enderecoenvio", endPag);
+        } else if(endPag == null){
+            modelAndView.addObject("enderecopagamento", endEnv);
+            modelAndView.addObject("enderecoenvio", endEnv);
         } else {
             modelAndView.addObject("enderecopagamento", endPag);
             modelAndView.addObject("enderecoenvio", endEnv);
@@ -115,6 +119,47 @@ public class ClienteController {
         modelAndView.addObject("endereco", endereco);
 
         return modelAndView;
+    }
+
+    @PostMapping("/alterar_endereco")
+    public String alterarClienteEndereco(@ModelAttribute("endereco") Endereco endereco,
+                                               @RequestParam(value = "end_entrega", required = false) String endEntrega,
+                                               @RequestParam(value = "end_pagamento", required = false) String endPagamento) {
+
+        Long clienteId = this.clienteRepositorio.findByEnderecos(endereco.getId()).getId();
+
+        if(endPagamento != null && endEntrega != null){
+            Endereco enderecobancoPagamento = this.enderecoRepositorio.findByIdAndComportamento(clienteId, PAGAMENTO.getCode());
+            Endereco enderecobancoenvio = this.enderecoRepositorio.findByIdAndComportamento(clienteId, ENVIO.getCode());
+            enderecobancoPagamento.setComportamento(PADRAO.getCode());
+            enderecobancoenvio.setComportamento(PADRAO.getCode());
+            this.enderecoRepositorio.save(enderecobancoPagamento);
+            this.enderecoRepositorio.save(enderecobancoenvio);
+
+            endereco.setComportamento(PAGAMENTO.getCode());
+            this.enderecoRepositorio.save(endereco);
+
+        } else if (endPagamento != null){
+            Endereco enderecobancoPagamento = this.enderecoRepositorio.findByIdAndComportamento(clienteId, PAGAMENTO.getCode());
+            enderecobancoPagamento.setComportamento(PADRAO.getCode());
+            this.enderecoRepositorio.save(enderecobancoPagamento);
+
+            endereco.setComportamento(PAGAMENTO.getCode());
+            this.enderecoRepositorio.save(endereco);
+
+        } else if (endEntrega != null){
+            Endereco enderecobancoenvio = this.enderecoRepositorio.findByIdAndComportamento(clienteId, ENVIO.getCode());
+            enderecobancoenvio.setComportamento(PADRAO.getCode());
+            this.enderecoRepositorio.save(enderecobancoenvio);
+
+            endereco.setComportamento(ENVIO.getCode());
+            this.enderecoRepositorio.save(endereco);
+        } else {
+            endereco.setComportamento(this.enderecoRepositorio.findById(endereco.getId()).get().getComportamento());
+            this.enderecoRepositorio.save(endereco);
+        }
+
+        return "mensagens/alterado";
     }
 
     @RequestMapping("/alterar_cartao")

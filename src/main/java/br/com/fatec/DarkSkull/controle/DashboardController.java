@@ -65,16 +65,25 @@ public class DashboardController {
         cidade.setDescricao(allParamsCliente.get("complemento"));
         cidade.setBairro(allParamsCliente.get("bairro"));
 
-        Endereco endereco = new Endereco();
-        endereco.setCidade(cidade);
-        endereco.setLongadouro(allParamsCliente.get("logradouro"));
-        endereco.setNumero(allParamsCliente.get("numero"));
-        endereco.setTipoResidencia(allParamsCliente.get("tipoendereco"));
-        endereco.setCep(allParamsCliente.get("cep"));
-        endereco.setDescricao("Endereço de Cadastro de Usuario");
-        endereco.setComportamento(ComportamentoEndereco.PAGAMENTO_E_ENVIO.getCode());
+        Endereco enderecoPagamento = new Endereco();
+        enderecoPagamento.setCidade(cidade);
+        enderecoPagamento.setLongadouro(allParamsCliente.get("logradouro"));
+        enderecoPagamento.setNumero(allParamsCliente.get("numero"));
+        enderecoPagamento.setTipoResidencia(allParamsCliente.get("tipoendereco"));
+        enderecoPagamento.setCep(allParamsCliente.get("cep"));
+        enderecoPagamento.setDescricao("Endereço de Pagamento de Usuario");
+        enderecoPagamento.setComportamento(ComportamentoEndereco.PAGAMENTO.getCode());
 
-        Cliente cliente = new Cliente(email, senha, nome, cpf, timestampDataNascimento, genero, telefone, endereco);
+        Endereco enderecoEnvio = new Endereco();
+        enderecoEnvio.setCidade(cidade);
+        enderecoEnvio.setLongadouro(allParamsCliente.get("logradouro"));
+        enderecoEnvio.setNumero(allParamsCliente.get("numero"));
+        enderecoEnvio.setTipoResidencia(allParamsCliente.get("tipoendereco"));
+        enderecoEnvio.setCep(allParamsCliente.get("cep"));
+        enderecoEnvio.setDescricao("Endereço de Envio de Usuario");
+        enderecoEnvio.setComportamento(ComportamentoEndereco.ENVIO.getCode());
+
+        Cliente cliente = new Cliente(email, senha, nome, cpf, timestampDataNascimento, genero, telefone, enderecoPagamento, enderecoEnvio);
 
         this.clienteRepositorio.save(cliente);
         return "mensagens/inserido";

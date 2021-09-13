@@ -35,9 +35,6 @@ public class Endereco {
     @JoinColumn(name = "cidade_id", referencedColumnName = "id")
     public Cidade cidade;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cliente_id", referencedColumnName = "id")
-    public Cliente cliente;
 
 
 }

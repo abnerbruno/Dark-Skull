@@ -12,7 +12,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Getter
@@ -42,14 +44,14 @@ public class Cliente {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id")
-    private List<Endereco> enderecoList;
+    private Set<Endereco> enderecos;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cartao_id", referencedColumnName = "id")
-    private List<Cartao> cartoesList;
+    private Set<Cartao> cartoes;
 
 
-    public Cliente(String email, String senha, String nome, String cpf, Timestamp dataNascimento, String genero, String telefone, Endereco endereco) {
+    public Cliente(String email, String senha, String nome, String cpf, Timestamp dataNascimento, String genero, String telefone, Endereco pagamentoEndereco, Endereco envioEndereco) {
 
         this.nome = nome;
         this.cpf = cpf;
@@ -64,8 +66,9 @@ public class Cliente {
 
         this.usuario = usuario;
 
-        this.enderecoList = new ArrayList<Endereco>();
-        this.enderecoList.add(endereco);
+        this.enderecos = new HashSet<Endereco>();
+        this.enderecos.add(pagamentoEndereco);
+        this.enderecos.add(envioEndereco);
 
     }
 
