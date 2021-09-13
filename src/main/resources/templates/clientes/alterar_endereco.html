@@ -43,6 +43,7 @@
     <h1>Endereço</h1>
     <form id="register-form" action="/cliente/alterar_endereco" method="POST" th:object="${endereco}">
         <input type="hidden" name="id" th:field="*{id}"/>
+        <input type="hidden" name="cliente_id" th:field="*{cliente.id}"/>
         <!-- CEP -->
         <div class="half-box spacing">
             <label for="CEP">CEP</label>

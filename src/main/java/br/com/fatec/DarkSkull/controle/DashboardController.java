@@ -62,6 +62,7 @@ public class DashboardController {
         Cidade cidade = new Cidade();
         cidade.setEstado(estado);
         cidade.setNome(allParamsCliente.get("cidade"));
+        cidade.setDescricao(allParamsCliente.get("complemento"));
         cidade.setBairro(allParamsCliente.get("bairro"));
 
         Endereco endereco = new Endereco();
@@ -70,6 +71,7 @@ public class DashboardController {
         endereco.setNumero(allParamsCliente.get("numero"));
         endereco.setTipoResidencia(allParamsCliente.get("tipoendereco"));
         endereco.setCep(allParamsCliente.get("cep"));
+        endereco.setDescricao("Endereço de Cadastro de Usuario");
         endereco.setComportamento(ComportamentoEndereco.PAGAMENTO_E_ENVIO.getCode());
 
         Cliente cliente = new Cliente(email, senha, nome, cpf, timestampDataNascimento, genero, telefone, endereco);

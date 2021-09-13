@@ -243,6 +243,7 @@
                               <div th:text="${enderecopagamento.cidade.nome}"></div>
                               <div th:text="${enderecopagamento.cidade.estado.nome}"></div>
                               <div th:text="${enderecopagamento.tipoResidencia}"></div>
+                              <div th:text="${enderecopagamento.descricao}"></div>
                               <p></p>
                               <a th:href="${'/cliente/alterar_endereco?id=' + enderecopagamento.id}"><button class="btn">Editar</button></a>
                           </div>
@@ -253,6 +254,7 @@
                               <div th:text="${enderecoenvio.cidade.nome}"></div>
                               <div th:text="${enderecoenvio.cidade.estado.nome}"></div>
                               <div th:text="${enderecoenvio.tipoResidencia}"></div>
+                              <div th:text="${enderecoenvio.descricao}"></div>
                               <p></p>
                               <a th:href="${'/cliente/alterar_endereco?id=' + enderecoenvio.id}"><button class="btn">Editar</button></a>
                           </div>
@@ -274,7 +276,7 @@
                                   <td th:text="${endereco.descricao}"></td>
                                   <td th:text="${endereco.longadouro}"></td>
                                   <td>
-                                      <a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                      <a th:href="${'/cliente/alterar_endereco?id=' + endereco.id}"><button class="btn"><i class="fa fa-edit"></i></button></a>
                                       <a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-trash"></i></button></a>
                                   </td>
                               </tr>
