@@ -52,6 +52,16 @@ public class MainController {
         return "checkout";
     }
 
+    @RequestMapping(value = "/detalhesproduto", method = RequestMethod.GET)
+    public String detalhesproduto(){
+        return "detalhesproduto";
+    }
+
+    @RequestMapping(value = "/alterar_pedido", method = RequestMethod.GET)
+    public String alterarPedido(){
+        return "pedidos/alterar_pedido";
+    }
+
     @RequestMapping("/t")
     public String t(){
         return "clientes/alterar_cartao";
