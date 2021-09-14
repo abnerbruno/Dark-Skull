@@ -32,6 +32,26 @@ public class MainController {
         return "cadastro";
     }
 
+    @RequestMapping(value = "/produtos", method = RequestMethod.GET)
+    public String produtos(){
+        return "produtos";
+    }
+
+    @RequestMapping(value = "/carrinho", method = RequestMethod.GET)
+    public String carrinho(){
+        return "carrinho";
+    }
+
+    @RequestMapping(value = "/listadesejo", method = RequestMethod.GET)
+    public String listadesejo(){
+        return "listadesejo";
+    }
+
+    @RequestMapping(value = "/checkout", method = RequestMethod.GET)
+    public String checkout(){
+        return "checkout";
+    }
+
     @RequestMapping("/t")
     public String t(){
         return "clientes/alterar_cartao";

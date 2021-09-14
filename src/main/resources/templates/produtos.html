@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+
+  <!-- CSS Libraries Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/MinhaConta.css" rel="stylesheet">
+  <link href="/lib/slick/slick.css" rel="stylesheet">
+  <link href="/lib/slick/slick-theme.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+          <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+              <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                  <div class="navbar-nav mr-auto">
+                      <a href="/home" class="nav-item nav-link">Home</a>
+                      <a href="/produtos" class="nav-item nav-link">Produtos</a>
+                      <a href="/checkout" class="nav-item nav-link">Checkout</a>
+                      <a href="/minhaConta" class="nav-item nav-link">Minha Conta</a>
+                  </div>
+                  <div class="navbar-nav ml-auto">
+                      <div class="nav-item dropdown">
+                          <a id="menu-entrar" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Entrar</a>
+                          <div class="dropdown-menu">
+                              <a href="/login" class="dropdown-item">Login</a>
+                              <a href="/cadastro" class="dropdown-item">Registrar</a>
+                              <a href="/dashboard" class="dropdown-item">Dashboard</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </nav>
+      </div>
+  </div>
+  <!-- Nav Bar End -->
+
+   <!-- Product List Start -->
+   <div class="product-view">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="product-view-top">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="product-search">
+                                        <input type="email" value="Buscar">
+                                        <button><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="product-short">
+                                        <div class="dropdown">
+                                            <div class="dropdown-toggle" data-toggle="dropdown">Buscar Por</div>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a href="#" class="dropdown-item">Newest</a>
+                                                <a href="#" class="dropdown-item">Popular</a>
+                                                <a href="#" class="dropdown-item">Most sale</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="product-price-range">
+                                        <div class="dropdown">
+                                            <div class="dropdown-toggle" data-toggle="dropdown">Produto por Preço</div>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a href="#" class="dropdown-item">R$0 to R$50</a>
+                                                <a href="#" class="dropdown-item">R$51 to R$100</a>
+                                                <a href="#" class="dropdown-item">R$101 to R$150</a>
+                                                <a href="#" class="dropdown-item">R$151 to R$200</a>
+                                                <a href="#" class="dropdown-item">R$201 to R$250</a>
+                                                <a href="#" class="dropdown-item">R$251 to R$300</a>
+                                                <a href="#" class="dropdown-item">R$301 to R$350</a>
+                                                <a href="#" class="dropdown-item">R$351 to R$400</a>
+                                                <a href="#" class="dropdown-item">R$401 to R$450</a>
+                                                <a href="#" class="dropdown-item">R$451 to R$500</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nome do Produto</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="image/iimg/product-1.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>R$</span>99.90</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nome do Produto</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="image/iimg/product-2.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>R$</span>99.90</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nome do Produto</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="image/iimg/product-3.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>R$</span>99.90</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nome do Produto</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="image/iimg/product-4.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>R$</span>99.90</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nome do Produto</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="image/iimg/product-5.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>R$</span>99.90</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nome do Produto</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="image/iimg/product-6.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>R$</span>99.90</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nome do Produto</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="image/iimg/product-7.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>R$</span>99.90</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nome do Produto</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="image/iimg/product-8.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>R$</span>99.90</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nome do Produto</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="image/iimg/product-9.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>R$</span>99.90</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product List End -->  
+
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  
+  <!-- JavaScript Libraries --> 
+  <script src="/js/jquery-3.4.1.min.js"></script> <!-- necessario para fazer a animação de Troca da Tabela-->
+  <script src="/js/bootstrap.js"></script>        <!-- necessario para fazer a animação de Troca da Tabela-->
+  <script src="/lib/easing/easing.min.js"></script>
+  <script src="/lib/slick/slick.min.js"></script>
+  
+  <!-- Template Javascript -->
+  <script src="/js/main.js"></script>
+
+</body>
+</html>

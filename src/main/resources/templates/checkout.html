@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+
+  <!-- CSS Libraries Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/MinhaConta.css" rel="stylesheet">
+  <link href="/lib/slick/slick.css" rel="stylesheet">
+  <link href="/lib/slick/slick-theme.css" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Nav Bar Start -->
+<div class="nav">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav mr-auto">
+                    <a href="/home" class="nav-item nav-link">Home</a>
+                    <a href="/produtos" class="nav-item nav-link">Produtos</a>
+                    <a href="/checkout" class="nav-item nav-link">Checkout</a>
+                    <a href="/minhaConta" class="nav-item nav-link">Minha Conta</a>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    <div class="nav-item dropdown">
+                        <a id="menu-entrar" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Entrar</a>
+                        <div class="dropdown-menu">
+                            <a href="/login" class="dropdown-item">Login</a>
+                            <a href="/cadastro" class="dropdown-item">Registrar</a>
+                            <a href="/dashboard" class="dropdown-item">Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Nav Bar End -->
+
+
+<!-- Bottom Bar Start -->
+<div class="bottom-bar">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                <div class="logo">
+                    <a href="home">
+                        <img src="image/logo.png" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="search">
+                    <input type="text" placeholder="Buscar">
+                    <button><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="user">
+                    <a href="/listadesejo" class="btn wishlist">
+                        <i class="fa fa-heart"></i>
+                        <span>(4)</span>
+                    </a>
+                    <a href="/carrinho" class="btn cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>(3)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bottom Bar End -->
+
+<!-- Checkout Start -->
+    <div class="checkout">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="checkout-inner">
+                        <div class="billing-address">
+                            <h2>Endereço de Pagamento</h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Primeiro Nome</label>
+                                    <input class="form-control" type="text" placeholder="First Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Ultimo Nome</label>
+                                    <input class="form-control" type="text" placeholder="Last Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>E-mail</label>
+                                    <input class="form-control" type="text" placeholder="E-mail">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Telefone</label>
+                                    <input class="form-control" type="text" placeholder="Mobile No">
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Endereço</label>
+                                    <input class="form-control" type="text" placeholder="Address">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Country</label>
+                                    <select class="custom-select">
+                                        <option selected>United States</option>
+                                        <option>Afghanistan</option>
+                                        <option>Albania</option>
+                                        <option>Algeria</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>City</label>
+                                    <input class="form-control" type="text" placeholder="City">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>State</label>
+                                    <input class="form-control" type="text" placeholder="State">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>ZIP Code</label>
+                                    <input class="form-control" type="text" placeholder="ZIP Code">
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="newaccount">
+                                        <label class="custom-control-label" for="newaccount">Criar Conta</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="shipto">
+                                        <label class="custom-control-label" for="shipto">Mudar Endereço</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="shipping-address">
+                            <h2>Endereço de Envio</h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>First Name</label>
+                                    <input class="form-control" type="text" placeholder="First Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Last Name"</label>
+                                    <input class="form-control" type="text" placeholder="Last Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>E-mail</label>
+                                    <input class="form-control" type="text" placeholder="E-mail">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Mobile No</label>
+                                    <input class="form-control" type="text" placeholder="Mobile No">
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Address</label>
+                                    <input class="form-control" type="text" placeholder="Address">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Country</label>
+                                    <select class="custom-select">
+                                        <option selected>United States</option>
+                                        <option>Afghanistan</option>
+                                        <option>Albania</option>
+                                        <option>Algeria</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>City</label>
+                                    <input class="form-control" type="text" placeholder="City">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>State</label>
+                                    <input class="form-control" type="text" placeholder="State">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>ZIP Code</label>
+                                    <input class="form-control" type="text" placeholder="ZIP Code">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="checkout-inner">
+                        <div class="checkout-summary">
+                            <h1>Carrinho</h1>
+                            <p>Product Name<span>R$ 99,90</span></p>
+                            <p class="sub-total">Sub Total<span>R$ 99,90</span></p>
+                            <p class="ship-cost">Shipping Cost<span>$1</span></p>
+                            <h2>Valor Total<span>$100</span></h2>
+                        </div>
+
+                        <div class="checkout-payment">
+                            <div class="payment-methods">
+                                <h1>Metodo de Pagamento</h1>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-1" name="payment">
+                                        <label class="custom-control-label" for="payment-1">Paypal</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-1-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-2" name="payment">
+                                        <label class="custom-control-label" for="payment-2">Payoneer</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-2-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-3" name="payment">
+                                        <label class="custom-control-label" for="payment-3">Check Payment</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-3-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-4" name="payment">
+                                        <label class="custom-control-label" for="payment-4">Direct Bank Transfer</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-4-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-5" name="payment">
+                                        <label class="custom-control-label" for="payment-5">Cash on Delivery</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-5-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout-btn">
+                                <button>Finalizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Checkout End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  
+  <!-- JavaScript Libraries --> 
+  <script src="/js/jquery-3.4.1.min.js"></script> <!-- necessario para fazer a animação de Troca da Tabela-->
+  <script src="/js/bootstrap.js"></script>        <!-- necessario para fazer a animação de Troca da Tabela-->
+  <script src="/lib/easing/easing.min.js"></script>
+  <script src="/lib/slick/slick.min.js"></script>
+  
+  <!-- Template Javascript -->
+  <script src="/js/main.js"></script>
+
+</body>
+</html>
