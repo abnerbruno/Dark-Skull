@@ -51,7 +51,7 @@ public class Cliente {
     private Set<Cartao> cartoes;
 
 
-    public Cliente(String email, String senha, String nome, String cpf, Timestamp dataNascimento, String genero, String telefone, Endereco pagamentoEndereco, Endereco envioEndereco) {
+    public Cliente(String email, String senha, String nome, String cpf, Timestamp dataNascimento, String genero, String telefone, Endereco endereco) {
 
         this.nome = nome;
         this.cpf = cpf;
@@ -67,8 +67,7 @@ public class Cliente {
         this.usuario = usuario;
 
         this.enderecos = new HashSet<Endereco>();
-        this.enderecos.add(pagamentoEndereco);
-        this.enderecos.add(envioEndereco);
+        this.enderecos.add(endereco);
 
     }
 

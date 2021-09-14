@@ -35,6 +35,7 @@ public class Endereco {
     @JoinColumn(name = "cidade_id", referencedColumnName = "id")
     public Cidade cidade;
 
-
+    @Column(name = "cliente_id")
+    public Long clienteId;
 
 }

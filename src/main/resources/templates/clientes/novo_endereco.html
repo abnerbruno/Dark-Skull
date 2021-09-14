@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Alterar Endereço</title>
+  <title>Novo Endereço</title>
 
   <link href="/css/bootstrap.css" rel="stylesheet">
   <link href="/css/MinhaConta.css" rel="stylesheet">
@@ -40,19 +40,18 @@
 
 
   <div id="main-container">
-    <h1>Endereço</h1>
-    <form id="register-form" action="/cliente/alterar_endereco" method="POST" th:object="${endereco}">
-        <input type="hidden" name="id" th:field="*{id}"/>
-        <input type="hidden" name="clienteId" th:field="*{clienteId}"/>
+    <h1>Novo Endereço</h1>
+    <form id="register-form" action="/cliente/novo_endereco" method="POST">
+        <input type="hidden" name="clienteid" th:value="${clienteid}">
         <!-- CEP -->
         <div class="half-box spacing">
             <label for="CEP">CEP</label>
-            <input th:field="*{cep}" type="text" name="cep" id="cep" placeholder="Ex: 00000-000" data-required  data-min-length="8" data-max-length="9" >
+            <input type="text" name="cep" id="cep" placeholder="Ex: 00000-000" data-required  data-min-length="8" data-max-length="9" >
         </div>
         <!-- Tipo Residencia -->
         <div class="half-box">
             <label for="tipoendereco">Tipo Endereço</label>
-            <input th:field="*{tipoResidencia}" type="text" name="tipoendereco" id="tipoendereco" placeholder="Tipo Endereço" list="tiposendereco" data-required >
+            <input type="text" name="tipoendereco" id="tipoendereco" placeholder="Tipo Endereço" list="tiposendereco" data-required >
             <datalist id="tiposendereco">
                 <option value="Residencia">
                 <option value="Apartamento">
@@ -63,38 +62,38 @@
         <!-- Logrodouro -->
         <div class="half-box spacing">
             <label for="Logradouro">Logrodouro</label>
-            <input th:field="*{longadouro}" type="text" name="logradouro" id="logradouro" placeholder="Logradouro" data-required>
+            <input type="text" name="logradouro" id="logradouro" placeholder="Logradouro" data-required>
         </div>
         <!-- Numero -->
         <div class="half-box">
             <label for="Numero">Numero</label>
-            <input th:field="*{numero}" type="text" name="numero" id="numero" placeholder="Numero" data-required>
+            <input type="text" name="numero" id="numero" placeholder="Numero" data-required>
         </div>
         <!-- Bairro -->
         <div class="half-box spacing">
             <label for="Bairro">Bairro</label>
-            <input th:field="*{cidade.bairro}" type="text" name="bairro" id="bairro" placeholder="Bairro" data-required>
+            <input type="text" name="bairro" id="bairro" placeholder="Bairro" data-required>
         </div>
         <!-- Cidade -->
         <div class="half-box">
             <label for="Cidade">Cidade</label>
-            <input th:field="*{cidade.nome}" type="text" name="cidade" id="localidade" placeholder="Cidade" data-required>
+            <input type="text" name="cidade" id="localidade" placeholder="Cidade" data-required>
         </div>
         <!-- Estado -->
         <div class="half-box spacing">
             <label for="Estado">Estado</label>
-            <input th:field="*{cidade.estado.nome}" type="text" name="estado" id="uf" placeholder="Estado" data-required>
+            <input type="text" name="estado" id="uf" placeholder="Estado" data-required>
         </div>
 
         <!-- Complemento -->
         <div class="half-box">
             <label for="Complemento">Complemento</label>
-            <input th:field="*{cidade.descricao}" type="text" name="complemento" id="complemento" placeholder="Complemento" data-required>
+            <input type="text" name="complemento" id="complemento" placeholder="Complemento" data-required>
         </div>
         <!-- Descricao -->
         <div class="full-box">
             <label for="descricao">descricao</label>
-            <input th:field="*{descricao}" type="text" name="descricao" id="descricao">
+            <input type="text" name="descricao" id="descricao">
         </div>
 
       <div class="half-box spacing">
@@ -108,10 +107,9 @@
       </div>
       
       <!-- Envio Salvar de formulario -->
-      <div class="full-box spacing">
+      <div class="half-box spacing">
         <input id="btn-submit" type="submit" value="Salvar">
       </div>
-
 
     </form>
   </div>

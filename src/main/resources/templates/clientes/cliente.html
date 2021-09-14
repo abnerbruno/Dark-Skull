@@ -238,25 +238,27 @@
                       <div class="row">
                           <div class="col-md-6">
                               <h5>Endereço de Pagamento</h5>
-                              <div th:text="${enderecopagamento.longadouro} + ', ' + ${enderecopagamento.numero}"></div>
-                              <div th:text="${enderecopagamento.cidade.bairro}"></div>
-                              <div th:text="${enderecopagamento.cidade.nome}"></div>
-                              <div th:text="${enderecopagamento.cidade.estado.nome}"></div>
-                              <div th:text="${enderecopagamento.tipoResidencia}"></div>
-                              <div th:text="${enderecopagamento.descricao}"></div>
+                              <div th:text="${enderecopagamento?.longadouro}"></div>
+                              <div th:text="${enderecopagamento?.numero}"></div>
+                              <div th:text="${enderecopagamento?.cidade?.bairro}"></div>
+                              <div th:text="${enderecopagamento?.cidade?.nome}"></div>
+                              <div th:text="${enderecopagamento?.cidade?.estado?.nome}"></div>
+                              <div th:text="${enderecopagamento?.tipoResidencia}"></div>
+                              <div th:text="${enderecopagamento?.descricao}"></div>
                               <p></p>
-                              <a th:href="${'/cliente/alterar_endereco?id=' + enderecopagamento.id}"><button class="btn">Editar</button></a>
+                              <a th:href="${'/cliente/alterar_endereco?id=' + enderecopagamento?.id}"><button class="btn">Editar</button></a>
                           </div>
                           <div class="col-md-6">
                               <h5>Endereço de Entrega</h5>
-                              <div th:text="${enderecoenvio.longadouro} + ', ' + ${enderecoenvio.numero}"></div>
-                              <div th:text="${enderecoenvio.cidade.bairro}"></div>
-                              <div th:text="${enderecoenvio.cidade.nome}"></div>
-                              <div th:text="${enderecoenvio.cidade.estado.nome}"></div>
-                              <div th:text="${enderecoenvio.tipoResidencia}"></div>
-                              <div th:text="${enderecoenvio.descricao}"></div>
+                              <div th:text="${enderecoenvio?.longadouro}"></div>
+                              <div th:text="${enderecoenvio?.numero}"></div>
+                              <div th:text="${enderecoenvio?.cidade?.bairro}"></div>
+                              <div th:text="${enderecoenvio?.cidade?.nome}"></div>
+                              <div th:text="${enderecoenvio?.cidade?.estado?.nome}"></div>
+                              <div th:text="${enderecoenvio?.tipoResidencia}"></div>
+                              <div th:text="${enderecoenvio?.descricao}"></div>
                               <p></p>
-                              <a th:href="${'/cliente/alterar_endereco?id=' + enderecoenvio.id}"><button class="btn">Editar</button></a>
+                              <a th:href="${'/cliente/alterar_endereco?id=' + enderecoenvio?.id}"><button class="btn">Editar</button></a>
                           </div>
                       </div>
                       <p></p>
@@ -277,14 +279,14 @@
                                   <td th:text="${endereco.longadouro}"></td>
                                   <td>
                                       <a th:href="${'/cliente/alterar_endereco?id=' + endereco.id}"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                      <a href="cliente/alterar_endereco"><button class="btn"><i class="fa fa-trash"></i></button></a>
+                                      <a th:href="${'/cliente/excluir_endereco?id=' + endereco.id}"><button class="btn"><i class="fa fa-trash"></i></button></a>
                                   </td>
                               </tr>
                           </tbody>
                       </table>
                       <p></p>
                       <p></p>
-                      <a href="cliente/alterar_endereco"><button class="btn">Novo Endereço</button></a>
+                      <a th:href="${'/cliente/novo_endereco?clienteid=' + cliente.id}"><button class="btn">Novo Endereço</button></a>
                   </div>
               </div>
           </div>
