@@ -208,7 +208,7 @@ public class ClienteController {
             endereco.setComportamento(PAGAMENTO.getCode());
             this.enderecoRepositorio.save(endereco);
 
-        } else if (isEndEntrega != null){
+        } else if (isEndEntrega != null){//"on"
             if(enderecobancoenvio != null){
                 enderecobancoenvio.setComportamento(PADRAO.getCode());
                 this.enderecoRepositorio.save(enderecobancoenvio);
