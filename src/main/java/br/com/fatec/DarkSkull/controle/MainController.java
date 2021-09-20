@@ -1,68 +1,67 @@
 package br.com.fatec.DarkSkull.controle;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping(value = "/")
     public String index() {
         return "home";
     }
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String home(){
+    @GetMapping(value = "/home")
+    public String home() {
         return "home";
     }
 
-    @RequestMapping(value = "/minhaConta", method = RequestMethod.GET)
-    public String minhaConta(){
+    @GetMapping(value = "/minhaConta")
+    public String minhaConta() {
         return "minhaConta";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(){
+    @GetMapping(value = "/login")
+    public String login() {
         return "login";
     }
 
-    @RequestMapping(value = "/cadastro", method = RequestMethod.GET)
-    public String cadastro(){
+    @GetMapping(value = "/cadastro")
+    public String cadastro() {
         return "cadastro";
     }
 
-    @RequestMapping(value = "/produtos", method = RequestMethod.GET)
-    public String produtos(){
+    @GetMapping(value = "/produtos")
+    public String produtos() {
         return "produtos";
     }
 
-    @RequestMapping(value = "/carrinho", method = RequestMethod.GET)
-    public String carrinho(){
+    @GetMapping(value = "/carrinho")
+    public String carrinho() {
         return "carrinho";
     }
 
-    @RequestMapping(value = "/listadesejo", method = RequestMethod.GET)
-    public String listadesejo(){
+    @GetMapping(value = "/listadesejo")
+    public String listadesejo() {
         return "listadesejo";
     }
 
-    @RequestMapping(value = "/checkout", method = RequestMethod.GET)
-    public String checkout(){
+    @GetMapping(value = "/checkout")
+    public String checkout() {
         return "checkout";
     }
 
-    @RequestMapping(value = "/detalhesproduto", method = RequestMethod.GET)
-    public String detalhesproduto(){
+    @GetMapping(value = "/detalhesproduto")
+    public String detalhesproduto() {
         return "detalhesproduto";
     }
 
-    @RequestMapping(value = "/alterar_pedido", method = RequestMethod.GET)
-    public String alterarPedido(){
+    @GetMapping(value = "/alterar_pedido")
+    public String alterarPedido() {
         return "pedidos/alterar_pedido";
     }
 
-    @RequestMapping("/t")
+    @GetMapping("/t")
     public String t(){
         return "clientes/alterar_cartao";
     }

@@ -1,29 +1,22 @@
 package br.com.fatec.DarkSkull.model.dominio.produto.camisetas;
 
+import br.com.fatec.DarkSkull.dao.ProdutoRepositorio;
+import br.com.fatec.DarkSkull.model.dominio.produto.Produto;
 import br.com.fatec.DarkSkull.util.Tamanho;
 import lombok.*;
 
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Getter
 @Setter
 
 @AllArgsConstructor
-@NoArgsConstructor
 
-//@Entity
-public class Camisa {
+@Entity
+@Table(name = "camisa")
+public class Camisa extends Produto {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String nome;
-    private long valor;
-    private Tamanho tamanho;
-    private int quantidade;
-    private String descricao;
+
 
 }
