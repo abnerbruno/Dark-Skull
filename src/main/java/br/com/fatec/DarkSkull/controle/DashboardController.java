@@ -1,6 +1,7 @@
 package br.com.fatec.DarkSkull.controle;
 
-import br.com.fatec.DarkSkull.repository.ClienteRepositorio;
+import br.com.fatec.DarkSkull.fachada.Fachada;
+import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.*;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
 import br.com.fatec.DarkSkull.util.ComportamentoEndereco;
@@ -22,11 +23,11 @@ import java.util.Map;
 @RequestMapping("/dashboard")
 public class DashboardController {
 
-    private final ClienteRepositorio clienteRepositorio;
+    private final Fachada fachada;
 
     @GetMapping
     public ModelAndView listarTudo() {
-        List<Cliente>clientes = this.clienteRepositorio.findAll();
+        List<EntidadeDominio> clientes = fachada.consultar(new Cliente());
 
         ModelAndView modelAndView = new ModelAndView("dashboard");
         modelAndView.addObject("clientes", clientes);
@@ -74,14 +75,13 @@ public class DashboardController {
 
 
         Cliente cliente = new Cliente(email, senha, nome, cpf, timestampDataNascimento, genero, telefone, endereco);
-
-        this.clienteRepositorio.save(cliente);
+        this.fachada.salvar(cliente);
         return "mensagens/inserido";
     }
 
     @GetMapping("/excluir_cliente")
     public String excluirCliente(@RequestParam("id") Long id) {
-        this.clienteRepositorio.deleteById(id);
+        fachada.excluirById(new Cliente(), id);
         return "mensagens/excluido";
     }
 

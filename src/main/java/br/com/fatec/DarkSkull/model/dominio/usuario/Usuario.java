@@ -4,7 +4,6 @@ import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import lombok.*;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Getter
 @Setter
