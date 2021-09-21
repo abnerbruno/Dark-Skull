@@ -1,5 +1,6 @@
 package br.com.fatec.DarkSkull.model.dominio.cliente.endereco;
 
+import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,14 +16,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "estado")
-public class Estado {
+public class Estado extends EntidadeDominio {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
-    public String nome;
-    public String descricao;
+    private String nome;
+    private String descricao;
 
 }

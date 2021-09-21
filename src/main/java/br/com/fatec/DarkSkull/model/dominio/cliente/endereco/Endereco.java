@@ -1,7 +1,6 @@
 package br.com.fatec.DarkSkull.model.dominio.cliente.endereco;
 
-import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
-import br.com.fatec.DarkSkull.util.ComportamentoEndereco;
+import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,19 +16,14 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "endereco")
-public class Endereco {
+public class Endereco extends EntidadeDominio {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
-    public String descricao;
-    public String longadouro;
-    public String numero;
-    public String cep;
-    public String tipoResidencia;
-    public int comportamento;
+    private String descricao;
+    private String longadouro;
+    private String numero;
+    private String cep;
+    private String tipoResidencia;
+    private int comportamento;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cidade_id", referencedColumnName = "id")

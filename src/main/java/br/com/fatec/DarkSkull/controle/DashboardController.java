@@ -1,7 +1,6 @@
 package br.com.fatec.DarkSkull.controle;
 
-import br.com.fatec.DarkSkull.dao.ClienteRepositorio;
-import br.com.fatec.DarkSkull.dao.EnderecoRepositorio;
+import br.com.fatec.DarkSkull.repository.ClienteRepositorio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.*;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
 import br.com.fatec.DarkSkull.util.ComportamentoEndereco;
@@ -24,7 +23,6 @@ import java.util.Map;
 public class DashboardController {
 
     private final ClienteRepositorio clienteRepositorio;
-    private final EnderecoRepositorio enderecoRepositorio;
 
     @GetMapping
     public ModelAndView listarTudo() {

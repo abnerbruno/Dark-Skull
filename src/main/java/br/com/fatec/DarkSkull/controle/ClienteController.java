@@ -1,12 +1,11 @@
 package br.com.fatec.DarkSkull.controle;
 
-import br.com.fatec.DarkSkull.dao.ClienteRepositorio;
-import br.com.fatec.DarkSkull.dao.EnderecoRepositorio;
+import br.com.fatec.DarkSkull.repository.ClienteRepositorio;
+import br.com.fatec.DarkSkull.repository.EnderecoRepositorio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Cidade;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Endereco;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Estado;
-import br.com.fatec.DarkSkull.util.ComportamentoEndereco;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

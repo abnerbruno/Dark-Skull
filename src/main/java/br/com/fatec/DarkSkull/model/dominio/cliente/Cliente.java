@@ -1,21 +1,18 @@
 package br.com.fatec.DarkSkull.model.dominio.cliente;
 
+import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.cartao.Cartao;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Endereco;
 import br.com.fatec.DarkSkull.model.dominio.usuario.Usuario;
-import br.com.fatec.DarkSkull.util.ComportamentoEndereco;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.*;
 
 @Getter
 @Setter
@@ -25,16 +22,16 @@ import java.util.concurrent.atomic.AtomicReference;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente {
+public class Cliente extends EntidadeDominio {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+
 
     private String nome;
     private String cpf;
-    private Timestamp dataNascimento;
+
+    @CreationTimestamp
+    private Date dataNascimento;
+
     private String genero;
     private String telefone;
 
@@ -51,7 +48,7 @@ public class Cliente {
     private Set<Cartao> cartoes;
 
 
-    public Cliente(String email, String senha, String nome, String cpf, Timestamp dataNascimento, String genero, String telefone, Endereco endereco) {
+    public Cliente(String email, String senha, String nome, String cpf, Date dataNascimento, String genero, String telefone, Endereco endereco) {
 
         this.nome = nome;
         this.cpf = cpf;

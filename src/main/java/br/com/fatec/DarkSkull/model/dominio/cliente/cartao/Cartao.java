@@ -1,5 +1,6 @@
 package br.com.fatec.DarkSkull.model.dominio.cliente.cartao;
 
+import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,16 +16,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "cartao")
-public class Cartao {
+public class Cartao extends EntidadeDominio {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
-    public String nome;
-    public String numeroCartão;
-    public String codSeguranca;
-    public String bandeira;
-    public String descricao;
+    private String nome;
+    private String numeroCartão;
+    private String codSeguranca;
+    private String bandeira;
+    private String descricao;
 }

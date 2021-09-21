@@ -1,5 +1,6 @@
 package br.com.fatec.DarkSkull.model.dominio.produto;
 
+import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.util.Tamanho;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,10 +17,8 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Produto {
+public abstract class Produto extends EntidadeDominio {
 
-    @Id
-    private long id;
     private String nome;
     private long valor;
     private Tamanho tamanho;

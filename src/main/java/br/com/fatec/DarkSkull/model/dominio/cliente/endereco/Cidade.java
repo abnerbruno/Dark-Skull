@@ -1,5 +1,6 @@
 package br.com.fatec.DarkSkull.model.dominio.cliente.endereco;
 
+import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,16 +16,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "cidade")
-public class Cidade {
+public class Cidade extends EntidadeDominio {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
-    public String nome;
-    public String bairro;
-    public String descricao;
+    private String nome;
+    private String bairro;
+    private String descricao;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "estado_id", referencedColumnName = "id")

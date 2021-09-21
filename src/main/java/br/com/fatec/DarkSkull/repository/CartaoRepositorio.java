@@ -1,4 +1,4 @@
-package br.com.fatec.DarkSkull.dao;
+package br.com.fatec.DarkSkull.repository;
 
 
 import br.com.fatec.DarkSkull.model.dominio.cliente.cartao.Cartao;

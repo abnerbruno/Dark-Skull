@@ -1,17 +1,19 @@
 package br.com.fatec.DarkSkull;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-@EnableAutoConfiguration
-@ComponentScan //podemos dizer ao Spring onde procurar por essas classes anotadas
 public class DarkSkullApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DarkSkullApplication.class, args);
+
+
+		ConfigurableApplicationContext configurableApplicationContext =
+				SpringApplication.run(DarkSkullApplication.class, args);
+
+		ClienteDao clienteDao = configurableApplicationContext.getBean(ClienteDao.class);
 	}
 
 }

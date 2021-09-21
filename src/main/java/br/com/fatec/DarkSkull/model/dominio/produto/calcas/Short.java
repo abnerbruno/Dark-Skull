@@ -1,21 +1,17 @@
 package br.com.fatec.DarkSkull.model.dominio.produto.calcas;
 
-import br.com.fatec.DarkSkull.util.Tamanho;
-import lombok.Data;
+import br.com.fatec.DarkSkull.model.dominio.produto.Produto;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 @Getter
 @Setter
-@Data
-public class Short {
 
-    private String nome;
-    private long valor;
-    private Tamanho tamanho;
-    private int quantidade;
-    private String descricao;
-
-
+@Entity
+@Table(name ="short")
+public class Short extends Produto {
 
 }
