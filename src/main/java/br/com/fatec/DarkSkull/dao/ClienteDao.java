@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -30,7 +31,11 @@ public class ClienteDao implements IDAOEntidadeDominio {
 
     @Override
     public EntidadeDominio getById(Long id) {
-        return this.clienteRepositorio.getById(id);
+
+        Optional<Cliente> cliente = this.clienteRepositorio.findById(id);
+        EntidadeDominio entidade = cliente.get();
+
+        return entidade;
     }
 
     @Override
@@ -46,5 +51,9 @@ public class ClienteDao implements IDAOEntidadeDominio {
     @Override
     public void deleted(EntidadeDominio entidade) {
         this.clienteRepositorio.delete((Cliente) entidade);
+    }
+
+    public Cliente buscarendereco(Long id){
+        return this.clienteRepositorio.findByEnderecos(id);
     }
 }

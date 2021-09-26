@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import static br.com.fatec.DarkSkull.util.ComportamentoEndereco.PADRAO;
+
 @Getter
 @Setter
 
@@ -23,7 +25,7 @@ public class Endereco extends EntidadeDominio {
     private String numero;
     private String cep;
     private String tipoResidencia;
-    private int comportamento;
+    private int comportamento = PADRAO.getCode();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cidade_id", referencedColumnName = "id")
