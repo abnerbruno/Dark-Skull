@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-import static br.com.fatec.DarkSkull.util.ComportamentoEndereco.*;
-import static br.com.fatec.DarkSkull.util.ComportamentoEndereco.PADRAO;
+import static br.com.fatec.DarkSkull.util.constants.*;
+import static br.com.fatec.DarkSkull.util.constants.PADRAO;
 
 @Getter
 @Setter

@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CartaoRepositorio extends JpaRepository<Cartao,Long> {
+    Cartao findByClienteId(Long id);
+    Cartao findByClienteIdAndComportamento(Long id, int comportamento);
 }

@@ -1,11 +1,11 @@
 package br.com.fatec.DarkSkull.util;
 
-public enum ComportamentoEndereco {
-    PADRAO(0),PAGAMENTO(1), ENVIO(2), PAGAMENTO_E_ENVIO(3);
+public enum constants {
+    PADRAO(0),PAGAMENTO(1), ENVIO(2), PAGAMENTO_E_ENVIO(3), PRINCIPAL(4);
 
     private final int code;
 
-    ComportamentoEndereco(int tipopassado) {
+    constants(int tipopassado) {
         code = tipopassado;
     }
 

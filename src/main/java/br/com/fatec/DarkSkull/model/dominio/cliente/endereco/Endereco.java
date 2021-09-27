@@ -8,7 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-import static br.com.fatec.DarkSkull.util.ComportamentoEndereco.PADRAO;
+import static br.com.fatec.DarkSkull.util.constants.PADRAO;
 
 @Getter
 @Setter

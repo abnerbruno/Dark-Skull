@@ -1,10 +1,12 @@
 package br.com.fatec.DarkSkull.fachada;
 
+import br.com.fatec.DarkSkull.dao.CartaoDao;
 import br.com.fatec.DarkSkull.dao.ClienteDao;
 import br.com.fatec.DarkSkull.dao.EnderecoDao;
 import br.com.fatec.DarkSkull.dao.IDAOEntidadeDominio;
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
+import br.com.fatec.DarkSkull.model.dominio.cliente.cartao.Cartao;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Endereco;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +27,16 @@ public class Fachada implements IFachada {
     @Autowired
     private final EnderecoDao enderecoDao;
 
+    @Autowired
+    private final CartaoDao cartaoDao;
+
     private Map<String, IDAOEntidadeDominio> listaRepository;
 
     public void antesProcessar() {
         this.listaRepository = new HashMap<>();
         listaRepository.put(Cliente.class.getName(), this.clienteDao);
         listaRepository.put(Endereco.class.getName(), this.enderecoDao);
+        listaRepository.put(Cartao.class.getName(), this.cartaoDao);
     }
 
     @Override
@@ -57,9 +63,9 @@ public class Fachada implements IFachada {
         return "mensagens/excluido";
     }
 
-    public String excluirById(EntidadeDominio entidade, Long id) {
+    public String excluirById(String classname, Long id) {
         antesProcessar();
-        IDAOEntidadeDominio repository = listaRepository.get(entidade.getClass().getName());
+        IDAOEntidadeDominio repository = listaRepository.get(classname);
         repository.deletedById(id);
         return "mensagens/excluido";
     }
@@ -71,9 +77,9 @@ public class Fachada implements IFachada {
         return (List<EntidadeDominio>) repository.findAll();
     }
 
-    public EntidadeDominio consultarbyId(EntidadeDominio entidade, Long id) {
+    public EntidadeDominio consultarbyId(String classname, Long id) {
         antesProcessar();
-        IDAOEntidadeDominio repository = listaRepository.get(entidade.getClass().getName());
+        IDAOEntidadeDominio repository = listaRepository.get(classname);
         return repository.getById(id);
     }
 

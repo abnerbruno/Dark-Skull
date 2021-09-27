@@ -83,22 +83,22 @@
                           <input type="hidden" name="id" th:field="*{id}"/>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" name="nome" th:field="*{nome}"/>
+                                    <input class="form-control" type="text" name="nome" placeholder="Nome" th:field="*{nome}"/>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" name="telefone" th:field="*{telefone}">
+                                    <input class="form-control" type="text" name="telefone" placeholder="Telefone" th:field="*{telefone}">
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" name="dataNascimento" th:field="*{dataNascimento}">
+                                    <input class="form-control" type="text" name="dataNascimento" placeholder="Data Nascimento" th:field="*{dataNascimento}">
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" name="email" th:field="*{usuario.email}">
+                                    <input class="form-control" type="text" name="email" placeholder="Email" th:field="*{usuario.email}">
                                 </div>
                                 <div class="col-md-6">
-                                  <input class="form-control" type="text" name="cpf" th:field="*{cpf}">
+                                  <input class="form-control" type="text" name="cpf" placeholder="CPF" th:field="*{cpf}">
                               </div>
                               <div class="col-md-6">
-                                  <input class="form-control" type="text" name="genero" th:field="*{genero}">
+                                  <input class="form-control" type="text" name="genero" placeholder="Genero" th:field="*{genero}">
                               </div>
                                 <div class="col-md-12">
                                     <button class="btn">Atualizar</button>
@@ -113,7 +113,7 @@
                         <input type="hidden" name="id" th:field="*{id}"/>
                         <div class="row">
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="senha" th:field="*{usuario.senha}">
+                                <input class="form-control" type="text" name="senha" placeholder="Senha Atual" th:field="*{usuario.senha}">
                             </div>
                             <div class="col-md-6">
                                 <input class="form-control" type="text" name="novasenha" placeholder="Nova Senha">
@@ -181,23 +181,26 @@
                   <div class="tab-pane fade" id="payment-tab" role="tabpanel" aria-labelledby="payment-nav">
                       <h5>Cartão de Credito Associado</h5>
                       <p></p>
-                      <div class="row">
+                      <div class="row" th:object="${cliente}">
+                          <form action="cliente/novo_cartao"  method="POST" th:object="${cartaoprincipal}">
+                              <input type="hidden" name="clienteid" th:field="${cliente.id}">
                           <div class="col-md-12">
-                              <input class="form-control" type="text" placeholder="Nome Complemento">
+                              <input class="form-control" type="text" placeholder="Nome Complemento" th:field="${cartaoprincipal.nome}">
                           </div>
                           <div class="col-md-6">
-                              <input class="form-control" type="text" placeholder="Numero do Cartão">
+                              <input class="form-control" type="text" placeholder="Numero do Cartão" th:field="${cartaoprincipal.numeroCartao}">
                           </div>
                           <div class="col-md-3">
-                              <input class="form-control" type="text" placeholder="Cod Segurançao">
+                              <input class="form-control" type="text" placeholder="Cod Segurançao" th:field="${cartaoprincipal.codSeguranca}">
                           </div>
                           <div class="col-md-3">
-                              <input class="form-control" type="text" placeholder="Bandeira">
+                              <input class="form-control" type="text" placeholder="Bandeira" th:field="${cartaoprincipal.bandeira}">
                           </div>
                           <div class="col-md-12">
-                              <td><a href="cliente/alterar_pedido"><button class="btn">Novo</button></a>
+                              <button class="btn">Novo</button>
                               <br><br>
                           </div>
+                          </form>
                           <p></p>
                           <p></p>
                           <p></p>
@@ -212,24 +215,15 @@
                                   </tr>
                               </thead>
                               <tbody>
-                                  <tr>
-                                      <td>Bradesco</td>
-                                      <td>-0298</td>
-                                      <td>MasterCard</td>
-                                      <td><a href="cliente/alterar_cartao"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                  </tr>
-                                  <tr>
-                                      <td>Caixa</td>
-                                      <td>-0198</td>
-                                      <td>Visa</td>
-                                      <td><a href="cliente/alterar_cartao"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                  </tr>
-                                  <tr>
-                                      <td>Itau</td>
-                                      <td>-0398</td>
-                                      <td>Visa</td>
-                                      <td><a href="cliente/alterar_cartao"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                  </tr>
+                              <tr th:each="cartao : ${cartoes}">
+                                  <td th:text="${cartao.nome}"></td>
+                                  <td th:text="${cartao.numeroCartao}"></td>
+                                  <td th:text="${cartao.bandeira}"></td>
+                                  <td>
+                                      <a th:href="${'/cliente/alterar_cartao?id=' + cartao.id}"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                      <a th:href="${'/cliente/excluir_cartao?id=' + cartao.id}"><button class="btn"><i class="fa fa-trash"></i></button></a>
+                                  </td>
+                              </tr>
                               </tbody>
                           </table>
                       </div>

@@ -4,7 +4,7 @@ import br.com.fatec.DarkSkull.fachada.Fachada;
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.*;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
-import br.com.fatec.DarkSkull.util.ComportamentoEndereco;
+import br.com.fatec.DarkSkull.util.constants;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -71,7 +71,7 @@ public class DashboardController {
         endereco.setTipoResidencia(allParamsCliente.get("tipoendereco"));
         endereco.setCep(allParamsCliente.get("cep"));
         endereco.setDescricao("Endereço de Padrão de Usuario");
-        endereco.setComportamento(ComportamentoEndereco.PAGAMENTO_E_ENVIO.getCode());
+        endereco.setComportamento(constants.PAGAMENTO_E_ENVIO.getCode());
 
 
         Cliente cliente = new Cliente(email, senha, nome, cpf, timestampDataNascimento, genero, telefone, endereco);
@@ -81,7 +81,7 @@ public class DashboardController {
 
     @GetMapping("/excluir_cliente")
     public String excluirCliente(@RequestParam("id") Long id) {
-        fachada.excluirById(new Cliente(), id);
+        fachada.excluirById(Cliente.class.getName(), id);
         return "mensagens/excluido";
     }
 

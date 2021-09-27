@@ -43,7 +43,7 @@ public class Cliente extends EntidadeDominio {
     private Set<Endereco> enderecos;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cartao_id", referencedColumnName = "id")
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id")
     private Set<Cartao> cartoes;
 
 

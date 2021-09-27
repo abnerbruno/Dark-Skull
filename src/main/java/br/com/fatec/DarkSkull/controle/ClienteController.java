@@ -2,6 +2,7 @@ package br.com.fatec.DarkSkull.controle;
 
 import br.com.fatec.DarkSkull.fachada.Fachada;
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
+import br.com.fatec.DarkSkull.model.dominio.cliente.cartao.Cartao;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Cidade;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Endereco;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
@@ -13,8 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.text.ParseException;
 import java.util.Map;
+import java.util.Optional;
 
-import static br.com.fatec.DarkSkull.util.ComportamentoEndereco.*;
+import static br.com.fatec.DarkSkull.util.constants.*;
 
 @AllArgsConstructor
 
@@ -28,7 +30,7 @@ public class ClienteController {
     public ModelAndView buscarCliente(@RequestParam("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("clientes/cliente");
 
-        EntidadeDominio entidadeDominio = fachada.consultarbyId(new Cliente(), id);
+        EntidadeDominio entidadeDominio = fachada.consultarbyId(Cliente.class.getName(), id);
         Cliente cliente = (Cliente) entidadeDominio;
         //Buscar Cliente no Banco
 
@@ -46,10 +48,19 @@ public class ClienteController {
         }
         // Buscar Lista de enterços no banco
 
+        Optional<Cartao> cartaoPrincipal = Optional.empty();
+        for(Cartao cartao : cliente.getCartoes()){
+            if(cartao.getComportamento() == PRINCIPAL.getCode()){
+                cartaoPrincipal = Optional.of(cartao);
+            }
+        }
+
         modelAndView.addObject("cliente", cliente);
         modelAndView.addObject("enderecos", cliente.getEnderecos());
         modelAndView.addObject("enderecopagamento", endPag);
         modelAndView.addObject("enderecoenvio", endEnv);
+        modelAndView.addObject("cartaoprincipal", cartaoPrincipal);
+        modelAndView.addObject("cartoes", cliente.getCartoes());
 
 
         return modelAndView;
@@ -59,7 +70,7 @@ public class ClienteController {
     public String atualizarDadosPessoais(@RequestParam Map<String,String> allParamsCliente) throws ParseException {
 
         Long id = Long.valueOf(allParamsCliente.get("id"));
-        EntidadeDominio entidadeDominio = fachada.consultarbyId(new Cliente(), id);
+        EntidadeDominio entidadeDominio = fachada.consultarbyId(Cliente.class.getName(), id);
         Cliente cliente = (Cliente) entidadeDominio;
 
         String nome = allParamsCliente.get("nome");
@@ -82,7 +93,7 @@ public class ClienteController {
     public String atualizarSenha(@RequestParam Map<String,String> allParamsCliente) {
 
         Long id = Long.valueOf(allParamsCliente.get("id"));
-        EntidadeDominio entidadeDominio = fachada.consultarbyId(new Cliente(), id);
+        EntidadeDominio entidadeDominio = fachada.consultarbyId(Cliente.class.getName(), id);
         Cliente cliente = (Cliente) entidadeDominio;
 
         String senha = allParamsCliente.get("usuario.senha");
@@ -98,7 +109,7 @@ public class ClienteController {
 
     @GetMapping("/inativado")
     public String inativarCliente(@RequestParam("id") Long id) {
-        EntidadeDominio entidadeDominio = fachada.consultarbyId(new Cliente(), id);
+        EntidadeDominio entidadeDominio = fachada.consultarbyId(Cliente.class.getName(), id);
         Cliente cliente = (Cliente) entidadeDominio;
         cliente.getUsuario().setStatus("Inativado");
         fachada.salvar(cliente);
@@ -150,9 +161,9 @@ public class ClienteController {
         return "mensagens/inserido";
     }
     @GetMapping("/alterar_endereco")
-    public ModelAndView AntesAlterarEndereco(@RequestParam("id") Long id) {
+    public ModelAndView antesAlterarEndereco(@RequestParam("id") Long id) {
 
-        EntidadeDominio entidadeDominio = fachada.consultarbyId(new Endereco(), id);
+        EntidadeDominio entidadeDominio = fachada.consultarbyId(Endereco.class.getName(), id);
         Endereco endereco = (Endereco) entidadeDominio;
 
         ModelAndView modelAndView = new ModelAndView("clientes/alterar_endereco");
@@ -182,14 +193,53 @@ public class ClienteController {
 
     @GetMapping("/excluir_endereco")
     public String excluirEndereco(@RequestParam("id") Long id) {
-        fachada.excluirById(new Endereco(), id);
+        fachada.excluirById(Endereco.class.getName(), id);
         return "mensagens/excluido";
     }
 
 
-    @RequestMapping("/alterar_cartao")
-    public String alterarClienteCartao() {
-        return "alterar_cartao";
+    @PostMapping("/novo_cartao")
+    public String novoClienteCartao(@RequestParam Map<String,String> allParamsCartao) {
+        Cartao cartao = new Cartao();
+        cartao.setNome(allParamsCartao.get("nome"));
+        cartao.setNumeroCartao(allParamsCartao.get("numeroCartao"));
+        cartao.setCodSeguranca(allParamsCartao.get("codSeguranca"));
+        cartao.setBandeira(allParamsCartao.get("bandeira"));
+        cartao.setClienteId(Long.valueOf(allParamsCartao.get("id")));
+
+        fachada.salvar(cartao);
+
+        return "mensagens/inserido";
+    }
+
+    @GetMapping("/alterar_cartao")
+    public ModelAndView antesClienteCartao(@RequestParam("id") Long id) {
+
+        EntidadeDominio entidadeDominio = fachada.consultarbyId(Cartao.class.getName(), id);
+        Cartao cartao = (Cartao) entidadeDominio;
+
+        ModelAndView modelAndView = new ModelAndView("clientes/alterar_cartao");
+        modelAndView.addObject("cartao", cartao);
+
+        return modelAndView;
+    }
+
+    @PostMapping("/alterar_cartao")
+    public String alterarCartao(@ModelAttribute("cartao") Cartao cartao,
+                                      @RequestParam(value = "cartaopagamento", required = false) String isCartaoPricipal) {
+
+        if(isCartaoPricipal != null){
+            cartao.setComportamento(PRINCIPAL.getCode());
+        }
+        fachada.salvar(cartao);
+
+        return "mensagens/alterado";
+    }
+
+    @GetMapping("/excluir_cartao")
+    public String excluirCartao(@RequestParam("id") Long id) {
+        fachada.excluirById(Cartao.class.getName(), id);
+        return "mensagens/excluido";
     }
 
     @RequestMapping("/alterar_pedido")
