@@ -1,13 +1,11 @@
 package br.com.fatec.DarkSkull.fachada;
 
-import br.com.fatec.DarkSkull.dao.CartaoDao;
-import br.com.fatec.DarkSkull.dao.ClienteDao;
-import br.com.fatec.DarkSkull.dao.EnderecoDao;
-import br.com.fatec.DarkSkull.dao.IDAOEntidadeDominio;
+import br.com.fatec.DarkSkull.dao.*;
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
 import br.com.fatec.DarkSkull.model.dominio.cliente.cartao.Cartao;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Endereco;
+import br.com.fatec.DarkSkull.model.dominio.produto.Produto;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,14 +19,12 @@ import java.util.Map;
 @Service
 public class Fachada implements IFachada {
 
-    @Autowired
     private final ClienteDao clienteDao;
-
-    @Autowired
     private final EnderecoDao enderecoDao;
-
-    @Autowired
     private final CartaoDao cartaoDao;
+    private final ProdutoDao produtoDao;
+
+
 
     private Map<String, IDAOEntidadeDominio> listaRepository;
 
@@ -37,6 +33,7 @@ public class Fachada implements IFachada {
         listaRepository.put(Cliente.class.getName(), this.clienteDao);
         listaRepository.put(Endereco.class.getName(), this.enderecoDao);
         listaRepository.put(Cartao.class.getName(), this.cartaoDao);
+        listaRepository.put(Produto.class.getName(), this.produtoDao);
     }
 
     @Override

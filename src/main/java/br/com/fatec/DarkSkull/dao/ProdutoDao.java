@@ -3,12 +3,14 @@ package br.com.fatec.DarkSkull.dao;
 
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
-import br.com.fatec.DarkSkull.repository.ClienteRepositorio;
+import br.com.fatec.DarkSkull.model.dominio.produto.Produto;
+import br.com.fatec.DarkSkull.repository.ProdutoRepositorio;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -17,42 +19,39 @@ import java.util.Optional;
 
 @NoArgsConstructor
 @Service
-public class ClienteDao implements IDAOEntidadeDominio {
+public class ProdutoDao implements IDAOEntidadeDominio {
 
     @Autowired
-    private ClienteRepositorio clienteRepositorio;
+    private ProdutoRepositorio produtoRepositorio;
 
 
     @Override
-    public List<Cliente> findAll() {
-        return this.clienteRepositorio.findAll();
+    public List<Produto> findAll() {
+        return this.produtoRepositorio.findAll();
     }
 
     @Override
     public EntidadeDominio getById(Long id) {
 
-        Optional<Cliente> cliente = this.clienteRepositorio.findById(id);
-        EntidadeDominio entidade = cliente.get();
+        Optional produto = this.produtoRepositorio.findById(id);
+        EntidadeDominio entidade = (EntidadeDominio) produto.get();
 
         return entidade;
     }
 
     @Override
     public EntidadeDominio saveOrUpdate(EntidadeDominio entidadeDominio) {
-        return this.clienteRepositorio.save((Cliente) entidadeDominio);
+        return (Produto) this.produtoRepositorio.save(entidadeDominio);
     }
 
     @Override
     public void deletedById(Long id) {
-        this.clienteRepositorio.deleteById(id);
+        this.produtoRepositorio.deleteById(id);
     }
 
     @Override
     public void deleted(EntidadeDominio entidade) {
-        this.clienteRepositorio.delete((Cliente) entidade);
+        this.produtoRepositorio.delete((Cliente) entidade);
     }
 
-    public Cliente buscarendereco(Long id){
-        return this.clienteRepositorio.findByEnderecos(id);
-    }
 }

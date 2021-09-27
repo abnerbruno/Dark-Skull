@@ -16,7 +16,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "produto")
 public class Produto extends EntidadeDominio {
 
@@ -25,6 +24,8 @@ public class Produto extends EntidadeDominio {
     private String tamanho;
     private int quantidade;
     private String descricao;
+
+    private String imagem = "image/iimg/product-1.jpg";
 
 
 }

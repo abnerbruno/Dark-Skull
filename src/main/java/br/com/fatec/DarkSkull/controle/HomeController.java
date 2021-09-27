@@ -1,14 +1,28 @@
 package br.com.fatec.DarkSkull.controle;
 
+import br.com.fatec.DarkSkull.fachada.Fachada;
+import br.com.fatec.DarkSkull.model.EntidadeDominio;
+import br.com.fatec.DarkSkull.model.dominio.produto.Produto;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+import java.util.Optional;
+
+@AllArgsConstructor
 @Controller
-public class MainController {
+public class HomeController {
+
+    private final Fachada fachada;
 
     @GetMapping(value = "/")
-    public String index() {
-        return "home";
+    public ModelAndView index() {
+        Optional<List<EntidadeDominio>> produtos = Optional.ofNullable(fachada.consultar(Produto.class.getName()));
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("produtos", produtos);
+        return modelAndView;
     }
 
     @GetMapping(value = "/home")
