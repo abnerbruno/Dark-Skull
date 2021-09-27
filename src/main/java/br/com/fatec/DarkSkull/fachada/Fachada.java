@@ -71,9 +71,9 @@ public class Fachada implements IFachada {
     }
 
     @Override
-    public List<EntidadeDominio> consultar(EntidadeDominio entidade) {
+    public List<EntidadeDominio> consultar(String entidadeClassName) {
         antesProcessar();
-        IDAOEntidadeDominio repository = listaRepository.get(entidade.getClass().getName());
+        IDAOEntidadeDominio repository = listaRepository.get(entidadeClassName);
         return (List<EntidadeDominio>) repository.findAll();
     }
 

@@ -27,7 +27,7 @@ public class DashboardController {
 
     @GetMapping
     public ModelAndView listarTudo() {
-        List<EntidadeDominio> clientes = fachada.consultar(new Cliente());
+        List<EntidadeDominio> clientes = fachada.consultar(Cliente.class.getName());
 
         ModelAndView modelAndView = new ModelAndView("dashboard");
         modelAndView.addObject("clientes", clientes);

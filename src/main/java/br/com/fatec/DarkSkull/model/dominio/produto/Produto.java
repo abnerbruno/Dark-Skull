@@ -17,11 +17,12 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Produto extends EntidadeDominio {
+@Table(name = "produto")
+public class Produto extends EntidadeDominio {
 
     private String nome;
     private long valor;
-    private Tamanho tamanho;
+    private String tamanho;
     private int quantidade;
     private String descricao;
 
