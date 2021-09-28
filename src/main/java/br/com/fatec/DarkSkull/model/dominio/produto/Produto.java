@@ -25,7 +25,11 @@ public class Produto extends EntidadeDominio {
     private int quantidade;
     private String descricao;
 
-    private String imagem = "image/iimg/product-1.jpg";
 
+    private String imagem;
+
+//    @Lob
+//    @Column(name="imagem")
+//    private byte[] imagem;
 
 }

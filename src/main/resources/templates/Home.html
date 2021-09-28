@@ -163,144 +163,30 @@
             <h1>Produtos em Destaque</h1>
         </div>
         <div class="row align-items-center product-slider product-slider-4">
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="/detalhesproduto">Nome do Produto</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="/detalhesproduto">
-                            <img th:src="@{/image/iimg/product-1.jpg}" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="/detalhesproduto"><i class="fa fa-cart-plus"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-heart"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>R$</span>99,00</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+            <div class="product-item" th:each="produto : ${produtos}">
+                <div class="product-title">
+                    <a th:text="${produto.nome}"></a>
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="/detalhesproduto">Nome do Produto</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="/detalhesproduto">
-                            <img th:src="@{/image/iimg/product-2.jpg}" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="/detalhesproduto"><i class="fa fa-cart-plus"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-heart"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>R$</span>99,00</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                <div class="product-image">
+                    <a href="/detalhesproduto">
+                        <img th:src="${'/image/iimg/product-' + produto.imagem + '.jpg'}" alt="Product Image">
+                    </a>
+                    <div class="product-action">
+                        <a th:href="${'/produto/carrinho?id=' + produto.id}"><i class="fa fa-cart-plus"></i></a>
+                        <a th:href="${'/produto/listadesejo?id=' + produto.id}"><i class="fa fa-heart"></i></a>
+                        <a th:href="${'/produto/detalhesproduto?id=' + produto.id}"><i class="fa fa-search"></i></a>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="/detalhesproduto">Nome do Produto</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="/detalhesproduto">
-                            <img src="image/iimg/product-3.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="/detalhesproduto"><i class="fa fa-cart-plus"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-heart"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>R$</span>99,00</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="/detalhesproduto">Nome do Produto</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="/detalhesproduto">
-                            <img src="image/iimg/product-4.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="/detalhesproduto"><i class="fa fa-cart-plus"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-heart"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>R$</span>99,00</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="/detalhesproduto">Nome do Produto</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="/detalhesproduto">
-                            <img src="image/iimg/product-5.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="/detalhesproduto"><i class="fa fa-cart-plus"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-heart"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>RR$</span>99,00</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
-                    </div>
+                <div class="product-price">
+                    <h3 th:text="${'R$' + produto.valor + ',00'}"><span></span></h3>
+                    <a class="btn" th:href="${'/produto/comprar?id=' + produto.id}"><i class="fa fa-shopping-cart"></i>Comprar</a>
                 </div>
             </div>
         </div>
@@ -315,144 +201,30 @@
             <h1>Novos Produtos</h1>
         </div>
         <div class="row align-items-center product-slider product-slider-4">
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="/detalhesproduto">Nome do Produto</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="/detalhesproduto">
-                            <img src="image/iimg/product-6.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="/detalhesproduto"><i class="fa fa-cart-plus"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-heart"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>R$</span>99,00</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+            <div class="product-item" th:each="produto : ${produtos}">
+                <div class="product-title">
+                    <a th:text="${produto.nome}"></a>
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="/detalhesproduto">Nome do Produto</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="/detalhesproduto">
-                            <img src="image/iimg/product-7.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="/detalhesproduto"><i class="fa fa-cart-plus"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-heart"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>R$</span>99,00</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                <div class="product-image">
+                    <a href="/detalhesproduto">
+                        <img th:src="${'/image/iimg/product-' + produto.imagem + '.jpg'}" alt="Product Image">
+                    </a>
+                    <div class="product-action">
+                        <a th:href="${'/produto/carrinho?id=' + produto.id}"><i class="fa fa-cart-plus"></i></a>
+                        <a th:href="${'/produto/listadesejo?id=' + produto.id}"><i class="fa fa-heart"></i></a>
+                        <a th:href="${'/produto/detalhesproduto?id=' + produto.id}"><i class="fa fa-search"></i></a>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="/detalhesproduto">Nome do Produto</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="/detalhesproduto">
-                            <img src="image/iimg/product-8.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="/detalhesproduto"><i class="fa fa-cart-plus"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-heart"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>R$</span>99,00</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="/detalhesproduto">Nome do Produto</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="/detalhesproduto">
-                            <img src="image/iimg/product-9.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="/detalhesproduto"><i class="fa fa-cart-plus"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-heart"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>R$</span>99,00</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="/detalhesproduto">Nome do Produto</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="/detalhesproduto">
-                            <img src="image/iimg/product-10.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="/detalhesproduto"><i class="fa fa-cart-plus"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-heart"></i></a>
-                            <a href="/detalhesproduto"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>R$</span>99,00</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
-                    </div>
+                <div class="product-price">
+                    <h3 th:text="${'R$' + produto.valor + ',00'}"><span></span></h3>
+                    <a class="btn" th:href="${'/produto/comprar?id=' + produto.id}"><i class="fa fa-shopping-cart"></i>Comprar</a>
                 </div>
             </div>
         </div>
