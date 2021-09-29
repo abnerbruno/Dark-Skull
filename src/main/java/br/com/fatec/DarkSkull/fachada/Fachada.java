@@ -6,6 +6,7 @@ import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
 import br.com.fatec.DarkSkull.model.dominio.cliente.cartao.Cartao;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Endereco;
 import br.com.fatec.DarkSkull.model.dominio.produto.Produto;
+import br.com.fatec.DarkSkull.model.dominio.usuario.Usuario;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class Fachada implements IFachada {
     private final EnderecoDao enderecoDao;
     private final CartaoDao cartaoDao;
     private final ProdutoDao produtoDao;
+    private final UsuarioDao usuarioDao;
 
 
 
@@ -34,6 +36,7 @@ public class Fachada implements IFachada {
         listaRepository.put(Endereco.class.getName(), this.enderecoDao);
         listaRepository.put(Cartao.class.getName(), this.cartaoDao);
         listaRepository.put(Produto.class.getName(), this.produtoDao);
+        listaRepository.put(Usuario.class.getName(), this.usuarioDao);
     }
 
     @Override
@@ -72,6 +75,12 @@ public class Fachada implements IFachada {
         antesProcessar();
         IDAOEntidadeDominio repository = listaRepository.get(entidadeClassName);
         return (List<EntidadeDominio>) repository.findAll();
+    }
+
+    public EntidadeDominio consultarEntidade(EntidadeDominio entidade) {
+        antesProcessar();
+        IDAOEntidadeDominio repository = listaRepository.get(entidade.getClass().getName());
+        return repository.getEntidade(entidade);
     }
 
     public EntidadeDominio consultarbyId(String classname, Long id) {

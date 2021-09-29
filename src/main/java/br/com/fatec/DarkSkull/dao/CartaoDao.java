@@ -40,6 +40,11 @@ public class CartaoDao implements IDAOEntidadeDominio {
     }
 
     @Override
+    public EntidadeDominio getEntidade(EntidadeDominio entidade) {
+        return null;
+    }
+
+    @Override
     public EntidadeDominio saveOrUpdate(EntidadeDominio entidadeDominio) {
         Cartao cartao = (Cartao) entidadeDominio;
 

@@ -40,6 +40,11 @@ public class ProdutoDao implements IDAOEntidadeDominio {
     }
 
     @Override
+    public EntidadeDominio getEntidade(EntidadeDominio entidade) {
+        return null;
+    }
+
+    @Override
     public EntidadeDominio saveOrUpdate(EntidadeDominio entidadeDominio) {
         return (Produto) this.produtoRepositorio.save(entidadeDominio);
     }

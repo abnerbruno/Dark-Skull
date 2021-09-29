@@ -29,7 +29,7 @@ public class DashboardController {
     public ModelAndView listarTudo() {
         List<EntidadeDominio> clientes = fachada.consultar(Cliente.class.getName());
 
-        ModelAndView modelAndView = new ModelAndView("dashboard");
+        ModelAndView modelAndView = new ModelAndView("dashboard/dashboard");
         modelAndView.addObject("clientes", clientes);
         return modelAndView;
     }
@@ -85,5 +85,9 @@ public class DashboardController {
         return "mensagens/excluido";
     }
 
+    @GetMapping(value = "/alterar_pedido")
+    public String alterarPedido() {
+        return "pedidos/alterar_pedido";
+    }
 
 }

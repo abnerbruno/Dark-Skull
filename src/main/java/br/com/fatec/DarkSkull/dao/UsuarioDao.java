@@ -3,12 +3,15 @@ package br.com.fatec.DarkSkull.dao;
 
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
-import br.com.fatec.DarkSkull.repository.ClienteRepositorio;
+import br.com.fatec.DarkSkull.model.dominio.produto.Produto;
+import br.com.fatec.DarkSkull.model.dominio.usuario.Usuario;
+import br.com.fatec.DarkSkull.repository.UsuarioRepositorio;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -17,47 +20,48 @@ import java.util.Optional;
 
 @NoArgsConstructor
 @Service
-public class ClienteDao implements IDAOEntidadeDominio {
+public class UsuarioDao implements IDAOEntidadeDominio {
 
     @Autowired
-    private ClienteRepositorio clienteRepositorio;
+    private UsuarioRepositorio usuarioRepositorio;
 
 
     @Override
-    public List<Cliente> findAll() {
-        return this.clienteRepositorio.findAll();
+    public List<Usuario> findAll() {
+        return this.usuarioRepositorio.findAll();
     }
 
     @Override
     public EntidadeDominio getById(Long id) {
 
-        Optional<Cliente> cliente = this.clienteRepositorio.findById(id);
-        EntidadeDominio entidade = cliente.get();
+        Optional<Usuario> usuario = this.usuarioRepositorio.findById(id);
+        EntidadeDominio entidade = usuario.get();
 
         return entidade;
     }
 
     @Override
     public EntidadeDominio getEntidade(EntidadeDominio entidade) {
+        Usuario usuario = (Usuario) entidade;
+        if(entidade.getId() == null){
+           return this.usuarioRepositorio.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
+        }
         return null;
     }
 
     @Override
     public EntidadeDominio saveOrUpdate(EntidadeDominio entidadeDominio) {
-        return this.clienteRepositorio.save((Cliente) entidadeDominio);
+        return this.usuarioRepositorio.save((Usuario) entidadeDominio);
     }
 
     @Override
     public void deletedById(Long id) {
-        this.clienteRepositorio.deleteById(id);
+        this.usuarioRepositorio.deleteById(id);
     }
 
     @Override
     public void deleted(EntidadeDominio entidade) {
-        this.clienteRepositorio.delete((Cliente) entidade);
+        this.usuarioRepositorio.delete((Usuario) entidade);
     }
 
-    public Cliente buscarendereco(Long id){
-        return this.clienteRepositorio.findByEnderecos(id);
-    }
 }

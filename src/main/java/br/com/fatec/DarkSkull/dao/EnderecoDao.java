@@ -42,6 +42,11 @@ public class EnderecoDao implements IDAOEntidadeDominio {
     }
 
     @Override
+    public EntidadeDominio getEntidade(EntidadeDominio entidade) {
+        return null;
+    }
+
+    @Override
     public EntidadeDominio saveOrUpdate(EntidadeDominio entidadeDominio) {
         Endereco endereco = (Endereco) entidadeDominio;
 

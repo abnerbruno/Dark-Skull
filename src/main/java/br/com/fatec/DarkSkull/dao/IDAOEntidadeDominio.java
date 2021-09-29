@@ -8,6 +8,7 @@ public interface IDAOEntidadeDominio {
 
     public List<?> findAll();
     public EntidadeDominio getById(Long id);
+    public EntidadeDominio getEntidade(EntidadeDominio entidade);
     public EntidadeDominio saveOrUpdate(EntidadeDominio entidade);
     public void deletedById(Long id);
     public void deleted(EntidadeDominio entidade);

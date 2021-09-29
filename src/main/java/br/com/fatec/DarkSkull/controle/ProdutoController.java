@@ -28,4 +28,10 @@ public class ProdutoController {
 
         return modelAndView;
     }
+
+    @GetMapping(value = "/produtos")
+    public String produtos() {
+        return "estoque/produtos";
+    }
+
 }
