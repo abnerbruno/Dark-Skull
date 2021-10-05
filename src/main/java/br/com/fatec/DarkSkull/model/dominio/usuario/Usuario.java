@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "usuario")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario extends EntidadeDominio {
 
 

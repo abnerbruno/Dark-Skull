@@ -80,7 +80,7 @@ public class ClienteController {
         String genero = allParamsCliente.get("genero");
 
         cliente.setNome(nome);
-        cliente.getUsuario().setEmail(email);
+        cliente.setEmail(email);
         cliente.setTelefone(telefone);
         cliente.setCpf(cpf);
         cliente.setGenero(genero);
@@ -101,7 +101,7 @@ public class ClienteController {
 //        String confirmarnovasenha = allParamsCliente.get("confirmarnovasenha");
 
 
-        cliente.getUsuario().setSenha(novasenha);
+        cliente.setSenha(novasenha);
 
         fachada.salvar(cliente);
         return "mensagens/alterado";
@@ -111,7 +111,7 @@ public class ClienteController {
     public String inativarCliente(@RequestParam("id") Long id) {
         EntidadeDominio entidadeDominio = fachada.consultarbyId(Cliente.class.getName(), id);
         Cliente cliente = (Cliente) entidadeDominio;
-        cliente.getUsuario().setStatus("Inativado");
+        cliente.setStatus("Inativado");
         fachada.salvar(cliente);
         return "mensagens/inativado";
     }

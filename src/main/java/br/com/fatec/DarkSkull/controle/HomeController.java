@@ -3,20 +3,23 @@ package br.com.fatec.DarkSkull.controle;
 import br.com.fatec.DarkSkull.fachada.Fachada;
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.produto.Produto;
-import br.com.fatec.DarkSkull.util.ImageUtil;
+import br.com.fatec.DarkSkull.model.dominio.usuario.UsuarioSingleton;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @AllArgsConstructor
 @Controller
+@RequestMapping("/")
 public class HomeController {
 
     private final Fachada fachada;
+    UsuarioSingleton usuario;
 
-    @GetMapping(value = "/")
+    @GetMapping
     public ModelAndView index() {
         List<EntidadeDominio> produtos = (fachada.consultar(Produto.class.getName()));
         ModelAndView modelAndView = new ModelAndView("home");

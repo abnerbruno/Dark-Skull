@@ -4,7 +4,9 @@ import br.com.fatec.DarkSkull.fachada.Fachada;
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.produto.Produto;
 import br.com.fatec.DarkSkull.model.dominio.usuario.Usuario;
+import br.com.fatec.DarkSkull.model.dominio.usuario.UsuarioSingleton;
 import lombok.AllArgsConstructor;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,7 @@ import java.util.List;
 public class LoginController {
 
     private final Fachada fachada;
+    ApplicationContext applicationContext;
 
     @GetMapping
     public String login() {
@@ -37,6 +40,12 @@ public class LoginController {
         if(usuario == null){
             return new ModelAndView("clientes/cadastro");
         }
+
+        UsuarioSingleton usu = (UsuarioSingleton) applicationContext.getBean("UsuarioSingleton");
+        usu.setId(usuario.getId());
+        usu.setEmail(usuario.getEmail());
+        usu.setSenha(usuario.getSenha());
+        usu.setStatus(usuario.getStatus());
 
         List<EntidadeDominio> produtos = (fachada.consultar(Produto.class.getName()));
         ModelAndView modelAndView = new ModelAndView("home");

@@ -21,9 +21,7 @@ import java.util.*;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente extends EntidadeDominio {
-
-
+public class Cliente extends Usuario {
 
     private String nome;
     private String cpf;
@@ -33,10 +31,6 @@ public class Cliente extends EntidadeDominio {
 
     private String genero;
     private String telefone;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    private Usuario usuario;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id")
@@ -55,12 +49,9 @@ public class Cliente extends EntidadeDominio {
         this.genero = genero;
         this.telefone = telefone;
 
-        Usuario usuario = new Usuario();
-        usuario.setEmail(email);
-        usuario.setSenha(senha);
-        usuario.setStatus("Ativado");
-
-        this.usuario = usuario;
+        super.setEmail(email);
+        super.setSenha(senha);
+        super.setStatus("Ativado");
 
         this.enderecos = new HashSet<Endereco>();
         this.enderecos.add(endereco);

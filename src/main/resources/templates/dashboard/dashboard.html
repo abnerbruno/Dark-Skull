@@ -163,9 +163,9 @@
                                         <tbody>
                                             <tr th:each="cliente : ${clientes}">
                                                 <td th:text="${cliente.nome}"></td>
-                                                <td th:text="${cliente.usuario.email}"></td>
-                                                <td th:text="${cliente.usuario.dataCadastro}"></td>
-                                                <td th:text="${cliente.usuario.status}"></td>
+                                                <td th:text="${cliente.email}"></td>
+                                                <td th:text="${cliente.dataCadastro}"></td>
+                                                <td th:text="${cliente.status}"></td>
                                                 <td>
                                                 <a th:href="${'/cliente?id=' + cliente.id}"><button class="btn"><i class="fa fa-edit"></i></button></a>
                                                 <a th:href="${'/dashboard/excluir_cliente?id=' + cliente.id}"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></a>

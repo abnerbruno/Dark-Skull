@@ -39,7 +39,7 @@ public class ClienteDao implements IDAOEntidadeDominio {
 
     @Override
     public EntidadeDominio getEntidade(EntidadeDominio entidade) {
-        return null;
+            return null;
     }
 
     @Override

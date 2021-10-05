@@ -10,13 +10,14 @@ import java.sql.Timestamp;
 @Setter
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class EntidadeDominio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    private String typeName = this.getClass().getSimpleName();
     protected final Timestamp dataCadastro = new Timestamp(System.currentTimeMillis());
 
 
