@@ -4,6 +4,7 @@ import br.com.fatec.DarkSkull.fachada.Fachada;
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.*;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
+import br.com.fatec.DarkSkull.model.dominio.pedido.Pedido;
 import br.com.fatec.DarkSkull.util.constants;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -28,9 +29,11 @@ public class DashboardController {
     @GetMapping
     public ModelAndView listarTudo() {
         List<EntidadeDominio> clientes = fachada.consultar(Cliente.class.getName());
+        List<EntidadeDominio> pedidos = fachada.consultar(Pedido.class.getName());
 
         ModelAndView modelAndView = new ModelAndView("dashboard/dashboard");
         modelAndView.addObject("clientes", clientes);
+        modelAndView.addObject("pedidos", pedidos);
         return modelAndView;
     }
 

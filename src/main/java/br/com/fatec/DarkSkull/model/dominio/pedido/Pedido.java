@@ -2,6 +2,7 @@ package br.com.fatec.DarkSkull.model.dominio.pedido;
 
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.usuario.Usuario;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,8 +21,12 @@ import java.util.Date;
 @Table(name = "pedido")
 public class Pedido extends EntidadeDominio {
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long numeroPedido;
+
     String nomeProduto;
 
+    @JsonFormat(pattern = "dd.MM.YYYY")
     @CreationTimestamp
     Date dataVenda;
 
@@ -30,8 +35,7 @@ public class Pedido extends EntidadeDominio {
     String tamanho;
     String Status;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    public Usuario usuario;
+    @OneToOne
+    Usuario usuario;
 
 }

@@ -182,53 +182,28 @@
                                     <p></p>
                                     <table class="table table-bordered">
                                         <thead class="thead-dark">
-                                            <tr>
-                                                <th>Numero</th>
-                                                <th>Usuario</th>
-                                                <th>Codigo</th>
-                                                <th>Data de compra</th>
-                                                <th>Valor Total</th>
-                                                <th>Status</th>
-                                                <th>Ação</th>
-                                            </tr>
+                                        <tr>
+                                            <th>Numero</th>
+                                            <th>Cliente</th>
+                                            <th>Data de compra</th>
+                                            <th>Valor Total</th>
+                                            <th>Status</th>
+                                            <th>Ação</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Bruno Minoru</td>
-                                                <td>100101</td>
-                                                <td>20/10/2020</td>
-                                                <td>R$99,90</td>
-                                                <td>Aguardando Pagamento</td>
-                                                <td>
-                                                    <a href="dashboard/alterar_pedido"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Bruno Abner</td>
-                                                <td>100102</td>
-                                                <td>25/10/2020</td>
-                                                <td>R$99,90</td>
-                                                <td>Enviado</td>
-                                                <td>
-                                                    <a href="dashboard/alterar_pedido"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Lenalee Lee</td>
-                                                <td>1002001</td>
-                                                <td>30/10/2020</td>
-                                                <td>R$180,90</td>
-                                                <td>Recebido</td>
-                                                <td>
-                                                    <a href="dashboard/alterar_pedido"><button class="btn"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                                </td>
-                                            </tr>
+                                        <tr th:each="pedido : ${pedidos}">
+                                            <td th:text="${pedido?.id}"></td>
+                                            <td th:text="${pedido?.usuario?.email}"></td>
+                                            <td th:text="${pedido?.dataVenda}"></td>
+                                            <td th:text="${pedido?.ValorTotal}"></td>
+                                            <td th:text="${pedido?.status}"></td>
+                                            <td>
+                                                <a th:href="${'/pedido?id=' + pedido?.id}"><button class="btn"><i class="fa fa-edit"></i></button></a>
+                                                <a th:href="${'/dashboard/excluir_pedido?id=' + pedido?.id}"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>

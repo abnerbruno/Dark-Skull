@@ -179,14 +179,14 @@
                         <img th:src="${'/image/iimg/product-' + produto.imagem + '.jpg'}" alt="Product Image">
                     </a>
                     <div class="product-action">
-                        <a th:href="@{/produto/carrinho(id=${produto.id})}"><i class="fa fa-cart-plus"></i></a>
-                        <a th:href="@{/produto/listadesejo(id=${produto.id})}"><i class="fa fa-heart"></i></a>
+                        <a th:href="@{/carrinho(id=${produto.id})}"><i class="fa fa-cart-plus"></i></a>
+                        <a th:href="@{/listadesejo(id=${produto.id})}"><i class="fa fa-heart"></i></a>
                         <a th:href="@{/produto/detalhesproduto(id=${produto.id})}"><i class="fa fa-search"></i></a>
                     </div>
                 </div>
                 <div class="product-price">
                     <h3 th:text="${'R$' + produto.valor + ',00'}"><span></span></h3>
-                    <a class="btn" th:href="${'/produto/comprar?id=' + produto.id}"><i class="fa fa-shopping-cart"></i>Comprar</a>
+                    <a class="btn" th:href="${'/checkout?id=' + produto.id}"><i class="fa fa-shopping-cart"></i>Comprar</a>
                 </div>
             </div>
         </div>
@@ -217,14 +217,14 @@
                         <img th:src="${'/image/iimg/product-' + produto.imagem + '.jpg'}" alt="Product Image">
                     </a>
                     <div class="product-action">
-                        <a th:href="@{/produto/carrinho(id=${produto.id})}"><i class="fa fa-cart-plus"></i></a>
-                        <a th:href="@{/produto/listadesejo(id=${produto.id})}"><i class="fa fa-heart"></i></a>
+                        <a th:href="@{/carrinho(id=${produto.id})}"><i class="fa fa-cart-plus"></i></a>
+                        <a th:href="@{/listadesejo(id=${produto.id})}"><i class="fa fa-heart"></i></a>
                         <a th:href="@{/produto/detalhesproduto(id=${produto.id})}"><i class="fa fa-search"></i></a>
                     </div>
                 </div>
                 <div class="product-price">
                     <h3 th:text="${'R$' + produto.valor + ',00'}"><span></span></h3>
-                    <a class="btn" th:href="${'/produto/comprar?id=' + produto.id}"><i class="fa fa-shopping-cart"></i>Comprar</a>
+                    <a class="btn" th:href="${'/checkout?id=' + produto.id}"><i class="fa fa-shopping-cart"></i>Comprar</a>
                 </div>
             </div>
         </div>

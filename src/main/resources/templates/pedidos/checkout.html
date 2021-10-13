@@ -80,7 +80,7 @@
 <!-- Bottom Bar End -->
 
 <!-- Checkout Start -->
-<form action="/produto/comprar"  method="POST" th:object="${cliente}">
+<form action="/checkout"  method="POST" th:object="${cliente}">
     <input type="hidden" name="produtoid" th:value="${produto?.id}">
     <div class="checkout">
         <div class="container-fluid">
