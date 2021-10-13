@@ -80,6 +80,8 @@
 <!-- Bottom Bar End -->
 
 <!-- Checkout Start -->
+<form action="/produto/comprar"  method="POST" th:object="${cliente}">
+    <input type="hidden" name="produtoid" th:value="${produto?.id}">
     <div class="checkout">
         <div class="container-fluid">
             <div class="row">
@@ -87,104 +89,100 @@
                     <div class="checkout-inner">
                         <div class="billing-address">
                             <h2>Endereço de Pagamento</h2>
-                            <form action="produto/checkout" method="POST" th:object="${cliente}">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Primeiro Nome</label>
-                                        <input class="form-control" type="text" placeholder="Full Name" th:field="*{nome}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>E-mail</label>
-                                        <input class="form-control" type="text" placeholder="E-mail" th:field="*{email}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Telefone</label>
-                                        <input class="form-control" type="text" placeholder="Mobile No" th:field="*{telefone}">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label>Endereço</label>
-                                        <input class="form-control" type="text" placeholder="Address" th:value="${enderecopagamento?.longadouro + ', ' + enderecopagamento?.numero}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Paises</label>
-                                        <select class="custom-select">
-                                            <option selected>Brasil</option>
-                                            <option>Estados Unidos</option>
-                                            <option>Columbia</option>
-                                            <option>Argentina</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Cidade</label>
-                                        <input class="form-control" type="text" placeholder="Cidade" th:value="${enderecopagamento?.cidade?.nome}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Estado</label>
-                                        <input class="form-control" type="text" placeholder="Estado" th:value="${enderecopagamento?.cidade?.estado?.nome}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>CEP</label>
-                                        <input class="form-control" type="text" placeholder="CEP" th:value="${enderecopagamento?.cep}">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="newaccount">
-                                            <label class="custom-control-label" for="newaccount">Criar Conta</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="shipto">
-                                            <label class="custom-control-label" for="shipto">Mudar Endereço</label>
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Primeiro Nome</label>
+                                    <input class="form-control" type="text" placeholder="Full Name" th:field="*{nome}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>E-mail</label>
+                                    <input class="form-control" type="text" placeholder="E-mail" th:field="*{email}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Telefone</label>
+                                    <input class="form-control" type="text" placeholder="Mobile No" th:field="*{telefone}">
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Endereço</label>
+                                    <input class="form-control" type="text" placeholder="Address" th:value="${enderecopagamento?.longadouro + ', ' + enderecopagamento?.numero}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Paises</label>
+                                    <select class="custom-select">
+                                        <option selected>Brasil</option>
+                                        <option>Estados Unidos</option>
+                                        <option>Columbia</option>
+                                        <option>Argentina</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Cidade</label>
+                                    <input class="form-control" type="text" placeholder="Cidade" th:value="${enderecopagamento?.cidade?.nome}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Estado</label>
+                                    <input class="form-control" type="text" placeholder="Estado" th:value="${enderecopagamento?.cidade?.estado?.nome}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>CEP</label>
+                                    <input class="form-control" type="text" placeholder="CEP" th:value="${enderecopagamento?.cep}">
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="newaccount">
+                                        <label class="custom-control-label" for="newaccount">Criar Conta</label>
                                     </div>
                                 </div>
-                            </form>
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="shipto">
+                                        <label class="custom-control-label" for="shipto">Mudar Endereço</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="shipping-address">
                             <h2>Endereço de Envio</h2>
-                            <form action="produto/checkout" method="POST" th:object="${cliente}">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Primeiro Nome</label>
-                                        <input class="form-control" type="text" placeholder="Full Name" th:field="*{nome}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>E-mail</label>
-                                        <input class="form-control" type="text" placeholder="E-mail" th:field="*{email}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Telefone</label>
-                                        <input class="form-control" type="text" placeholder="Mobile No" th:field="*{telefone}">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label>Endereço</label>
-                                        <input class="form-control" type="text" placeholder="Address" th:value="${enderecoenvio?.longadouro + ', ' + enderecoenvio?.numero}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Paises</label>
-                                        <select class="custom-select">
-                                            <option selected>Brasil</option>
-                                            <option>Estados Unidos</option>
-                                            <option>Columbia</option>
-                                            <option>Argentina</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Cidade</label>
-                                        <input class="form-control" type="text" placeholder="Cidade" th:value="${enderecoenvio?.cidade?.nome}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Estado</label>
-                                        <input class="form-control" type="text" placeholder="Estado" th:value="${enderecoenvio?.cidade?.estado?.nome}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>CEP</label>
-                                        <input class="form-control" type="text" placeholder="CEP" th:value="${enderecoenvio?.cep}">
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Primeiro Nome</label>
+                                    <input class="form-control" type="text" placeholder="Full Name" th:field="*{nome}">
                                 </div>
-                            </form>
+                                <div class="col-md-6">
+                                    <label>E-mail</label>
+                                    <input class="form-control" type="text" placeholder="E-mail" th:field="*{email}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Telefone</label>
+                                    <input class="form-control" type="text" placeholder="Mobile No" th:field="*{telefone}">
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Endereço</label>
+                                    <input class="form-control" type="text" placeholder="Address" th:value="${enderecoenvio?.longadouro + ', ' + enderecoenvio?.numero}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Paises</label>
+                                    <select class="custom-select">
+                                        <option selected>Brasil</option>
+                                        <option>Estados Unidos</option>
+                                        <option>Columbia</option>
+                                        <option>Argentina</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Cidade</label>
+                                    <input class="form-control" type="text" placeholder="Cidade" th:value="${enderecoenvio?.cidade?.nome}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Estado</label>
+                                    <input class="form-control" type="text" placeholder="Estado" th:value="${enderecoenvio?.cidade?.estado?.nome}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>CEP</label>
+                                    <input class="form-control" type="text" placeholder="CEP" th:value="${enderecoenvio?.cep}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -192,30 +190,30 @@
                     <div class="checkout-inner">
                         <div class="checkout-summary">
                             <h1>Carrinho</h1>
-                            <p class="sub-total" th:text="'Produto : ' + ${produto?.nome}"></p><span th:text="${'R$' + produto?.valor + ',00'}"></span>
-                            <p class="sub-total">Sub Total</p><span>R$ 99,90</span>
-                            <p class="ship-cost">Frete</p><span>R$ 15,00</span>
-                            <p class="ship-cost">Desconto</p><span>R$ 10,00</span>
-                            <h2>Valor Total</h2><span>R$ 100,00</span>
+                            <p class="sub-total">Produto<span th:text="${'R$' + produto?.valor + ',00'}"></span></p>
+                            <p class="sub-total">Sub Total <span>R$ 99,90</span></p>
+                            <p class="ship-cost">Frete <span>R$ 15,00</span></p>
+                            <p class="ship-cost">Desconto <span>R$ 10,00</span></p>
+                            <h2>Valor Total <span>R$ 100,00</span></h2>
                         </div>
 
-                        <div class="checkout-payment">
+                        <div class="checkout-payment" >
                             <div class="payment-methods">
                                 <h1>Metodo de Pagamento</h1>
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-1" name="payment">
+                                        <input type="radio" class="custom-control-input" id="payment-1" name="cartaocredito">
                                         <label class="custom-control-label" for="payment-1">Cartão de Credito</label>
                                     </div>
                                     <div class="payment-content" id="payment-1-show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
-                                        </p>
+                                        <p>Nome: <span th:text="${cartaopricipal?.nome}"></span></p>
+                                        <p>Numero do Cartao: <span th:text="${cartaopricipal?.numeroCartao}"></span></p>
+                                        <p>Bandeira: <span th:text="${cartaopricipal?.bandeira}"></span></p>
                                     </div>
                                 </div>
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-2" name="payment">
+                                        <input type="radio" class="custom-control-input" id="payment-2" name="pix">
                                         <label class="custom-control-label" for="payment-2">PIX</label>
                                     </div>
                                     <div class="payment-content" id="payment-2-show">
@@ -226,7 +224,7 @@
                                 </div>
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-3" name="payment">
+                                        <input type="radio" class="custom-control-input" id="payment-3" name="check">
                                         <label class="custom-control-label" for="payment-3">Check</label>
                                     </div>
                                     <div class="payment-content" id="payment-3-show">
@@ -237,7 +235,7 @@
                                 </div>
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-4" name="payment">
+                                        <input type="radio" class="custom-control-input" id="payment-4" name="tranferenciabancaria">
                                         <label class="custom-control-label" for="payment-4">Tranferencia Bancariar</label>
                                     </div>
                                     <div class="payment-content" id="payment-4-show">
@@ -248,7 +246,7 @@
                                 </div>
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-5" name="payment">
+                                        <input type="radio" class="custom-control-input" id="payment-5" name="emdinheiro">
                                         <label class="custom-control-label" for="payment-5">Em Dinheiro</label>
                                     </div>
                                     <div class="payment-content" id="payment-5-show">
@@ -267,6 +265,7 @@
             </div>
         </div>
     </div>
+</form>
     <!-- Checkout End -->
 
 

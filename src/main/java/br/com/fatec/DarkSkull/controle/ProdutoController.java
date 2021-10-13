@@ -3,12 +3,14 @@ package br.com.fatec.DarkSkull.controle;
 import br.com.fatec.DarkSkull.fachada.Fachada;
 import br.com.fatec.DarkSkull.model.EntidadeDominio;
 import br.com.fatec.DarkSkull.model.dominio.cliente.Cliente;
+import br.com.fatec.DarkSkull.model.dominio.cliente.cartao.Cartao;
 import br.com.fatec.DarkSkull.model.dominio.cliente.endereco.Endereco;
 import br.com.fatec.DarkSkull.model.dominio.produto.Produto;
 import br.com.fatec.DarkSkull.model.dominio.usuario.UsuarioSingleton;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -53,14 +55,32 @@ public class ProdutoController {
             }
         }
 
+        Cartao cartaoPrincipal = null;
+        for (Cartao cartao : cliente.getCartoes()) {
+            if (cartao.getComportamento() == PRINCIPAL.getCode()) {
+                cartaoPrincipal = cartao;
+            }
+        }
+
         ModelAndView modelAndView = new ModelAndView("pedidos/checkout");
         modelAndView.addObject("produto", produto);
         modelAndView.addObject("cliente", cliente);
         modelAndView.addObject("enderecopagamento", endPag);
         modelAndView.addObject("enderecoenvio", endEnv);
+        modelAndView.addObject("cartaopricipal", cartaoPrincipal);
 
 
         return modelAndView;
+    }
+
+    @PostMapping("/comprar")
+    public String finalizarCompraProduto(@RequestParam("produtoid") Long id) {
+        Produto produto = (Produto) fachada.consultarbyId(Produto.class.getName(), id);
+
+
+
+
+        return "mensagens/compra";
     }
 
     @GetMapping(value = "/produtos")

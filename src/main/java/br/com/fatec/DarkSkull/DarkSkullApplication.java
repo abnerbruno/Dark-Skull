@@ -1,18 +1,17 @@
 package br.com.fatec.DarkSkull;
 
 import br.com.fatec.DarkSkull.model.dominio.usuario.UsuarioSingleton;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Scope;
+import org.springframework.web.context.annotation.SessionScope;
 
 @SpringBootApplication
 public class DarkSkullApplication {
 
 
 	@Bean
-	@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
+	@SessionScope
 	public UsuarioSingleton UsuarioSingleton() {
 		return new UsuarioSingleton();
 	}
